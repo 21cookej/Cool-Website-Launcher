@@ -133,20 +133,15 @@ hr {
 #gtabs6 {bottom: 2.5vw; width: 14.5vw;}
 #gtabs5 img, #gtabs6 img {width: 2vw;}
 
-#gtabs6 span {
+#gtabs6 .gTabsText p {
     text-decoration: line-through;
 }
-
-#gtabs5 span {
+#gtabs5 .gTabsText p {
     text-decoration: line-through;
 }
-
-#gtabs1 span {
+#gtabs1 .gTabsText p {
     text-decoration: line-through;
 }
-
-
-
 
 .eaglercraftText {
     font-size: 1.1vw;
