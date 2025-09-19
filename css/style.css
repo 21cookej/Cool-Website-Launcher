@@ -220,8 +220,10 @@ hr {
 
 #gameSelection {
     position: absolute;
+    top: 70vh;       /* <-- push it down from the top (change this as you like) */
+    left: 16vw;
     /* You can adjust this height freely */
-    height: 8vw; /* try changing this to make the whole bar taller or shorter */
+    height: 16vw; /* try changing this to make the whole bar taller or shorter */
     width: 84vw;
     background-color: var(--ui-main);
     display: flex;
@@ -260,9 +262,10 @@ hr {
 
 .playButton {
     position: absolute;
-    /* You can set exact placement */
-    top: 2vw;     /* move button vertically */
-    left: 35vw;   /* move button horizontally */
+    top: 1vw;     /* adjust up or down */
+    left: 32vw;   /* adjust left or right */
+    display: flex;
+    align-items: center;
     width: 21.5vw;
     height: 5vw;
     background-image: url(../assets/images/play.png);
