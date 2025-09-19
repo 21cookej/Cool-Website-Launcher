@@ -602,7 +602,8 @@ hr {
 /* Dropdown Menu CSS */
 
 .dropdownMenu {
-    position: relative;
+    position: absolute;
+    bottom: 30%;
     left: 1vw;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
