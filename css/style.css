@@ -216,22 +216,26 @@ hr {
 #gameSelection {
     position: absolute;
     top: 70vh;
+    margin-left: 0.16%;
     bottom: 0;
-    width: 84vw;
-    height: 26vw;
+    width: 94.2%;
+    height: 6vw;
     justify-content: space-around;
     display: flex;
     background-color: var(--ui-main);
     align-items: center;
+    outline: solid;
+    outline-color: #5c5c5c;
+    outline-style: outset;
 }
 
 .dropdownSelector {
     position: absolute;
-    top: 3vh;
-    left: 1vw;
+    top: 0.5vh;
+    left: 0vw;
     display: flex;
     height: 4.5vw;
-    width: 25.5vw;
+    width: 22vw;
     align-items: center;
     justify-content: space-around;
     transition: 0.3s;
@@ -248,6 +252,8 @@ hr {
     justify-content: center;
 }
 
+.centeredIcon {}
+
 .dropdownIcon {
     color: white;
     width: 1.75vw;
@@ -255,7 +261,7 @@ hr {
 
 .playButton {
     position: absolute;
-    top: 3vh;
+    top: -2vh;
     left: 30vw;
     bottom: 0.5vw;
     display: flex;
