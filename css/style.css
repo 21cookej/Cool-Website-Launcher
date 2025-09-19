@@ -601,6 +601,7 @@ hr {
 
 .dropdownMenu {
     position: absolute;
+    top: 10vw;
     left: 1vw;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -608,7 +609,7 @@ hr {
 .dropdownOptions {
     position: absolute;
     display: flex;
-    bottom: 10vw;
+    top: 3vw;
     height: 5vw;
     width: 27vw;
     align-items: center;
