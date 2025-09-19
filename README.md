@@ -1,4 +1,4 @@
-# <img src=".github/assets/logo.png" alt="Ampler Logo" align="right" width="150px"> Eaglercraft Launcher
+# <img src="assets/images/sidebar/i-web.png" alt="Eagler Logo" align="right" width="150px"> Eaglercraft Launcher
  A minecraft themed launcher for Eaglercraft!<br>
  Containing some of the best clients all in one place!
 
@@ -45,4 +45,4 @@
 
 <hr>
 
->__Finally [here](https://irv77.github.io/AmplerLauncher/) is the live version of the code!__
+>__Finally [here](https://21cookej.github.io/Eaglercraft-Launcher/) is the live version of the code!__
