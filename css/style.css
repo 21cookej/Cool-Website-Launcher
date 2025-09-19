@@ -620,7 +620,7 @@ hr {
     position: absolute;
     display: flex;
     height: 5vw;
-    width: 27vw;
+    width: 25.5vw;
     align-items: center;
     background-color: var(--ui-main-dark);
     z-index: 999;
