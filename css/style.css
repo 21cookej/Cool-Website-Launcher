@@ -96,7 +96,6 @@ hr {
 /* Sidebar CSS */
 
 .sidebar {
-    position: fixed; /* keep it locked */
     height: 100vh;
     width: 16vw;
     background-color: var(--ui-main);
@@ -134,16 +133,6 @@ hr {
 #gtabs6 {bottom: 2.5vw; width: 14.5vw;}
 #gtabs5 img, #gtabs6 img {width: 2vw;}
 
-#gtabs6 .gTabsText p {
-    text-decoration: line-through;
-}
-#gtabs5 .gTabsText p {
-    text-decoration: line-through;
-}
-#gtabs1 .gTabsText p {
-    text-decoration: line-through;
-}
-
 .eaglercraftText {
     font-size: 1.1vw;
 }
@@ -164,7 +153,6 @@ hr {
 .mainPage {
     width: 84vw;
     background-color: var(--ui-main);
-    margin-left: 16vw; /* account for fixed sidebar */
 }
 
 .gameHeader {padding: 1.8vw 1.8vw 0;}
@@ -217,25 +205,23 @@ hr {
 
 #gameSelection {
     position: absolute;
-    top: 70vh;       /* <-- push it down from the top (change this as you like) */
-    left: 16vw;
-    /* You can adjust this height freely */
-    height: 26vw; /* try changing this to make the whole bar taller or shorter */
+    top: 70vh;
+    bottom: 0;
     width: 84vw;
-    background-color: var(--ui-main);
-    display: flex;
+    height: 26vw;
     justify-content: space-around;
+    display: flex;
+    background-color: var(--ui-main);
     align-items: center;
 }
 
 .dropdownSelector {
     position: absolute;
-    /* Control where it appears */
-    top: 1vw;   /* move it up or down */
-    left: 1vw;  /* move it left or right */
+    top: 3vh;
+    left: 1vw;
+    display: flex;
     height: 4.5vw;
     width: 27vw;
-    display: flex;
     align-items: center;
     justify-content: space-around;
     transition: 0.3s;
@@ -259,8 +245,9 @@ hr {
 
 .playButton {
     position: absolute;
-    top: 1vw;     /* adjust up or down */
-    left: 32vw;   /* adjust left or right */
+    top: 3vh;
+    left: 30vw;
+    bottom: 0.5vw;
     display: flex;
     align-items: center;
     width: 21.5vw;
@@ -612,43 +599,26 @@ hr {
 
 /* Dropdown Menu CSS */
 
-/* .dropdownMenu {
-    position: absolute;
-    top: 6vw;
-    left: 1vw;
-    max-height: 20vw; 
-    overflow-y: auto;
-    background-color: var(--ui-main-dark);
-    z-index: 1000;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-} */
-
-
 .dropdownMenu {
     position: absolute;
-    bottom: 100%;        /* position above the main selector */
-    left: 0;             /* align with the selector */
-    width: 27vw;
-    max-height: 20vw;    /* optional scroll if too tall */
-    overflow-y: auto;
-    background-color: var(--ui-main-dark);
-    z-index: 1000;
-    display: none;       /* hide by default */
-    flex-direction: column-reverse; /* reverses the order so the first item is at the bottom */
+    left: 1vw;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dropdownOptions {
+    position: absolute;
     display: flex;
-    align-items: center;
     height: 5vw;
-    padding-left: 0.5vw;
-    cursor: pointer;
+    width: 27vw;
+    align-items: center;
+    background-color: var(--ui-main-dark);
+    z-index: 999;
+    font-size: 1.1vw;
 }
 
 .dropdownOptions:hover {
     background-color: var(--ui-select);
 }
-
 
 .dropdownOption {
     position: absolute;
