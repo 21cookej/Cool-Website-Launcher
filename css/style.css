@@ -599,17 +599,17 @@ hr {
 
 /* Dropdown Menu CSS */
 
+/* Dropdown Menu CSS */
+
 .dropdownMenu {
-    position: absolute;
-    bottom: 3vw;
+    position: relative;
     left: 1vw;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dropdownOptions {
-    position: relative;
+    position: absolute;
     display: flex;
-    top: 100%;
     height: 5vw;
     width: 27vw;
     align-items: center;
