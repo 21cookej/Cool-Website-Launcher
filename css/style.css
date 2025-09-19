@@ -607,9 +607,9 @@ hr {
 }
 
 .dropdownOptions {
-    position: absolute;
+    position: relative;
     display: flex;
-    top: -30vw;
+    top: 100%;
     height: 5vw;
     width: 27vw;
     align-items: center;
