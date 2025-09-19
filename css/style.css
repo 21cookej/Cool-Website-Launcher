@@ -219,23 +219,24 @@ hr {
 }
 
 #gameSelection {
-    position: relative; /* relative so children move with it */
-    margin-top: -8vh;   /* raise play + dropdown */
+    position: absolute;
+    /* You can adjust this height freely */
+    height: 8vw; /* try changing this to make the whole bar taller or shorter */
     width: 84vw;
-    height: auto;
-    justify-content: space-around;
-    display: flex;
-    flex-direction: column;
     background-color: var(--ui-main);
-    padding-bottom: 1vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .dropdownSelector {
-    position: relative;
-    left: 1vw;
-    display: flex;
+    position: absolute;
+    /* Control where it appears */
+    top: 1vw;   /* move it up or down */
+    left: 1vw;  /* move it left or right */
     height: 4.5vw;
     width: 27vw;
+    display: flex;
     align-items: center;
     justify-content: space-around;
     transition: 0.3s;
@@ -258,11 +259,10 @@ hr {
 }
 
 .playButton {
-    position: relative;
-    left: 32vw;
-    margin-top: 1vh;
-    display: flex;
-    align-items: center;
+    position: absolute;
+    /* You can set exact placement */
+    top: 2vw;     /* move button vertically */
+    left: 35vw;   /* move button horizontally */
     width: 21.5vw;
     height: 5vw;
     background-image: url(../assets/images/play.png);
@@ -613,13 +613,13 @@ hr {
 /* Dropdown Menu CSS */
 
 .dropdownMenu {
-    max-height: 25vh;
+    position: absolute;
+    top: 6vw;   /* where the dropdown list starts */
+    left: 1vw;  /* stays aligned with selector */
+    max-height: 20vw; /* makes dropdown scrollable if longer */
     overflow-y: auto;
-    position: relative;
-    left: 1vw;
-    margin-top: 0.5vh;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 999;
+    background-color: var(--ui-main-dark);
+    z-index: 1000;
 }
 
 /* custom scrollbar for dropdown */
