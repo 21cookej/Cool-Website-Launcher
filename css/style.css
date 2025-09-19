@@ -265,7 +265,6 @@ hr {
     align-items: center;
     width: 21.5vw;
     height: 5vw;
-    background-color: #999;
     background-image: url(../assets/images/play.png);
     background-size: cover;
     background-position: center;
@@ -627,25 +626,29 @@ hr {
 
 .dropdownMenu {
     position: absolute;
-    left: 1vw;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-
+    bottom: 100%;        /* position above the main selector */
+    left: 0;             /* align with the selector */
+    width: 27vw;
+    max-height: 20vw;    /* optional scroll if too tall */
+    overflow-y: auto;
+    background-color: var(--ui-main-dark);
+    z-index: 1000;
+    display: none;       /* hide by default */
+    flex-direction: column-reverse; /* reverses the order so the first item is at the bottom */
+}
 
 .dropdownOptions {
-    position: absolute;
     display: flex;
-    height: 5vw;
-    width: 27vw;
     align-items: center;
-    background-color: var(--ui-main-dark);
-    z-index: 999;
-    font-size: 1.1vw;
+    height: 5vw;
+    padding-left: 0.5vw;
+    cursor: pointer;
 }
 
 .dropdownOptions:hover {
     background-color: var(--ui-select);
 }
+
 
 .dropdownOption {
     position: absolute;
