@@ -97,12 +97,9 @@ hr {
 
 .sidebar {
     position: fixed; /* keep it locked */
-    top: 0;
-    left: 0;
     height: 100vh;
     width: 16vw;
     background-color: var(--ui-main);
-    overflow-y: auto;
 }
 
 .sidebarOptions {
@@ -268,6 +265,7 @@ hr {
     align-items: center;
     width: 21.5vw;
     height: 5vw;
+    background-color: #999;
     background-image: url(../assets/images/play.png);
     background-size: cover;
     background-position: center;
@@ -615,27 +613,24 @@ hr {
 
 /* Dropdown Menu CSS */
 
-.dropdownMenu {
+/* .dropdownMenu {
     position: absolute;
-    top: 6vw;   /* where the dropdown list starts */
-    left: 1vw;  /* stays aligned with selector */
-    max-height: 20vw; /* makes dropdown scrollable if longer */
+    top: 6vw;
+    left: 1vw;
+    max-height: 20vw; 
     overflow-y: auto;
     background-color: var(--ui-main-dark);
     z-index: 1000;
-}
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+} */
 
-/* custom scrollbar for dropdown */
-.dropdownMenu::-webkit-scrollbar {
-    width: 0.6vw;
-}
-.dropdownMenu::-webkit-scrollbar-track {
-    background: var(--ui-main-dark);
-}
-.dropdownMenu::-webkit-scrollbar-thumb {
-    background: var(--ui-select);
-    border-radius: 1vw;
-}
+
+.dropdownMenu {
+    position: absolute;
+    left: 1vw;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+
 
 .dropdownOptions {
     position: absolute;
