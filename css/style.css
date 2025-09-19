@@ -96,9 +96,13 @@ hr {
 /* Sidebar CSS */
 
 .sidebar {
+    position: fixed; /* keep it locked */
+    top: 0;
+    left: 0;
     height: 100vh;
     width: 16vw;
     background-color: var(--ui-main);
+    overflow-y: auto;
 }
 
 .sidebarOptions {
@@ -153,6 +157,7 @@ hr {
 .mainPage {
     width: 84vw;
     background-color: var(--ui-main);
+    margin-left: 16vw; /* account for fixed sidebar */
 }
 
 .gameHeader {padding: 1.8vw 1.8vw 0;}
@@ -204,17 +209,19 @@ hr {
 }
 
 #gameSelection {
-    position: absolute;
-    bottom: 0;
+    position: relative; /* relative so children move with it */
+    margin-top: -8vh;   /* raise play + dropdown */
     width: 84vw;
-    height: 4.5vw;
+    height: auto;
     justify-content: space-around;
     display: flex;
+    flex-direction: column;
     background-color: var(--ui-main);
+    padding-bottom: 1vh;
 }
 
 .dropdownSelector {
-    position: absolute;
+    position: relative;
     left: 1vw;
     display: flex;
     height: 4.5vw;
@@ -241,9 +248,9 @@ hr {
 }
 
 .playButton {
-    position: absolute;
+    position: relative;
     left: 32vw;
-    bottom: 0.5vw;
+    margin-top: 1vh;
     display: flex;
     align-items: center;
     width: 21.5vw;
@@ -596,9 +603,25 @@ hr {
 /* Dropdown Menu CSS */
 
 .dropdownMenu {
-    position: absolute;
+    max-height: 25vh;
+    overflow-y: auto;
+    position: relative;
     left: 1vw;
+    margin-top: 0.5vh;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+}
+
+/* custom scrollbar for dropdown */
+.dropdownMenu::-webkit-scrollbar {
+    width: 0.6vw;
+}
+.dropdownMenu::-webkit-scrollbar-track {
+    background: var(--ui-main-dark);
+}
+.dropdownMenu::-webkit-scrollbar-thumb {
+    background: var(--ui-select);
+    border-radius: 1vw;
 }
 
 .dropdownOptions {
