@@ -223,7 +223,7 @@ hr {
     top: 70vh;       /* <-- push it down from the top (change this as you like) */
     left: 16vw;
     /* You can adjust this height freely */
-    height: 16vw; /* try changing this to make the whole bar taller or shorter */
+    height: 26vw; /* try changing this to make the whole bar taller or shorter */
     width: 84vw;
     background-color: var(--ui-main);
     display: flex;
