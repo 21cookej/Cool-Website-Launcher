@@ -389,13 +389,14 @@ hr {
     justify-content: center;
     gap: 5vw 1.5vw;
     padding: 4vh 0 7vh;
+    z-index: 4;
 }
 
 .modoption {
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    width: 18vw;
+    width: 10vw;
     border: 0.5vw solid var(--ui-main);
     transition: 0.1s;
 }
