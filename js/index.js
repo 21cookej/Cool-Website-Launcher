@@ -339,6 +339,7 @@ function webedition(){
     document.getElementById('game-title').src = './assets/images/web-title.png';
     document.getElementById('gameedition').innerHTML = 'EAGLERCRAFT WEB EDITION';
     document.getElementById('header2').style.display = 'none';
+    document.getElementById('header5').style.display = 'none';
     document.getElementById('header7').style.display = 'none';
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
@@ -353,6 +354,7 @@ function moddededition(){
     document.getElementById('game-bg').style.backgroundImage = 'url(./assets/images/modded-edition.jpg)';
     document.getElementById('game-title').src = './assets/images/modded-title.png';
     document.getElementById('gameedition').innerHTML = 'EAGLERCRAFT MODDED';
+    document.getElementById('header2').style.display = 'none';
     document.getElementById('header5').style.display = 'none';
     document.getElementById('header7').style.display = 'none';
     document.getElementById('header8').style.display = 'none';
@@ -407,7 +409,6 @@ function eaglerbuilder(){
     document.getElementById('gameedition').innerHTML = 'EAGLERFORGE BUILDER';
     document.getElementById('header2').style.display = 'none';
     document.getElementById('header3').style.display = 'none';
-    document.getElementById('header4').style.display = 'none';
     document.getElementById('header5').style.display = 'none';
     document.getElementById('header6').style.display = 'none';
     document.getElementById('header7').style.display = 'none';
