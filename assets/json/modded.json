@@ -14,6 +14,13 @@
        "active": true
     },
     {
+       "title": "Solar 3.5",
+       "version": "1.8.8",
+       "icon": "./assets/images/icons/hacked.png",
+       "link": "./mc/solar/",
+       "active": false
+    },
+    {
        "title": "Eaglercraft Hacked",
        "version": "1.8.8",
        "icon": "./assets/images/icons/hacked.png",
