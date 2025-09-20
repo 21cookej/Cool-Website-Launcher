@@ -17,6 +17,7 @@ function errorNA(text) {
 let selectedGame1 = localStorage.getItem("basegame");
 let selectedGame2 = localStorage.getItem("moddedgame");
 let selectedGame3 = localStorage.getItem("assisted");
+let selectedGame4 = localStorage.getItem("builder");
 let modslauncher
 if (localStorage.getItem("modslauncher")) {modslauncher = JSON.parse(localStorage.getItem("modslauncher"))};
 
@@ -41,6 +42,11 @@ function generateprofile(game) {
         });
     };
     if (game === 3 && selectedGame3) {selectedGame = JSON.parse(selectedGame3);  running = true;}; 
+    if (!selectedGame4) {
+        fetch("./assets/json/builder.json").then((response) => response.json()).then((data) => {
+            selectedGame4 = JSON.stringify(data[0]); localStorage.setItem("builder", selectedGame4);
+        });
+    };
     if (running === true) {
     document.getElementById('gametitle').innerHTML = selectedGame.title;
     document.getElementById('gameversion').innerHTML = selectedGame.version;
@@ -385,6 +391,26 @@ function settingsTab() {
     document.getElementById('header6').style.display = 'none';
     document.getElementById('header7').classList.add('selected'); // ✅ select header7 manually
     document.getElementById('gtabs6').classList.add('selected');
+}
+
+function eaglerbuilder(){
+    launcher = "./assets/json/modded.json";
+    resetTabSelected();
+    generateprofile(5);
+    generategames(launcher);
+    generatelaunchers(launcher);
+    document.getElementById('game-bg').style.backgroundImage = 'url(./assets/images/modded-edition.jpg)';
+    document.getElementById('game-title').src = './assets/images/modded-title.png';
+    document.getElementById('gameedition').innerHTML = 'EAGLERFORGE BUILDER';
+    document.getElementById('header2').style.display = 'none';
+    document.getElementById('header3').style.display = 'none';
+    document.getElementById('header4').style.display = 'none';
+    document.getElementById('header5').style.display = 'none';
+    document.getElementById('header6').style.display = 'none';
+    document.getElementById('header7').style.display = 'none';
+    document.getElementById('header8').style.display = 'none';
+    document.getElementById('header9').style.display = 'none';
+    document.getElementById('gtabs7').classList.add('selected');
 }
 
 function playheader() {
