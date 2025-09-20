@@ -402,7 +402,7 @@ function eaglerbuilder(){
     generateprofile(4);
     generategames(launcher);
     generatelaunchers(launcher);
-    document.getElementById('game-bg').style.backgroundImage = 'url(./assets/images/modded-edition.jpg)';
+    document.getElementById('game-bg').style.backgroundImage = 'url(./assets/images/builder.jpg)';
     document.getElementById('game-title').src = './assets/images/builder-title.png';
     document.getElementById('gameedition').innerHTML = 'EAGLERFORGE BUILDER';
     document.getElementById('header2').style.display = 'none';
