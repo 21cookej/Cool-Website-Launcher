@@ -380,6 +380,9 @@ function settingsTab() {
     launcher = "./assets/json/assisted.json";
     resetTabSelected();
     resetHeaderSelected(); // just clear everything
+    generateprofile(3);
+    generategames(launcher);
+    generatelaunchers(launcher);
     document.getElementById('game-bg').style.backgroundImage = 'url(./assets/images/controls-edition.jpg)';
     document.getElementById('game-title').src = './assets/images/controls-title.png';
     document.getElementById('gameedition').innerHTML = 'SETTINGS';
@@ -394,13 +397,13 @@ function settingsTab() {
 }
 
 function eaglerbuilder(){
-    launcher = "./assets/json/modded.json";
+    launcher = "./assets/json/builder.json";
     resetTabSelected();
     generateprofile(4);
     generategames(launcher);
     generatelaunchers(launcher);
     document.getElementById('game-bg').style.backgroundImage = 'url(./assets/images/modded-edition.jpg)';
-    document.getElementById('game-title').src = './assets/images/modded-title.png';
+    document.getElementById('game-title').src = './assets/images/builder-title.png';
     document.getElementById('gameedition').innerHTML = 'EAGLERFORGE BUILDER';
     document.getElementById('header2').style.display = 'none';
     document.getElementById('header3').style.display = 'none';
