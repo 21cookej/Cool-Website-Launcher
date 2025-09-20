@@ -104,7 +104,7 @@ hr {
 
 .sidebarOptions {
     display: flex;
-    height: 5vw;
+    height: 3.5vw;
     width: 87.4%;
     align-items: center;
     justify-content: flex-start;
@@ -139,7 +139,7 @@ hr {
     width: 86.58%;
     outline-width: 0.545vh;
     background-color: #1e1e1e;
-    height: 5vw;
+    height: 3.5vw;
     margin-left: 0.08vh;
     margin-top: -0.09vh;
     margin-bottom: 0.9vh;
@@ -151,14 +151,12 @@ hr {
   bottom: 7.5vw;
   w;
   width: 14.1vw;
-  margin-top: 0.2vh;
-  margin-bottom: 2vh;
+  margin-bottom: 0;
 }
 #gtabs6 {
   bottom: 2.5vw;
   width: 14.1vw;
-  margin-top: 0.2vh;
-  
+  margin-top: 0;
 }
 #gtabs5 img, #gtabs6 img {width: 2vw;}
 
