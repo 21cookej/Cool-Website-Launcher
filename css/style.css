@@ -483,6 +483,7 @@ hr {
     align-items: center;
     background-color: var(--ui-main-dark);
     overflow-y: scroll;
+    z-index: 4;
 }
 
 #installationsbox {
