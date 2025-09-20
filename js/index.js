@@ -380,9 +380,6 @@ function settingsTab() {
     launcher = "./assets/json/assisted.json";
     resetTabSelected();
     resetHeaderSelected(); // just clear everything
-    generateprofile(4);
-    generategames(launcher);
-    generatelaunchers(launcher);
     document.getElementById('game-bg').style.backgroundImage = 'url(./assets/images/controls-edition.jpg)';
     document.getElementById('game-title').src = './assets/images/controls-title.png';
     document.getElementById('gameedition').innerHTML = 'SETTINGS';
@@ -399,7 +396,7 @@ function settingsTab() {
 function eaglerbuilder(){
     launcher = "./assets/json/modded.json";
     resetTabSelected();
-    generateprofile(5);
+    generateprofile(4);
     generategames(launcher);
     generatelaunchers(launcher);
     document.getElementById('game-bg').style.backgroundImage = 'url(./assets/images/modded-edition.jpg)';
