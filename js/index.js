@@ -419,10 +419,15 @@ function eaglerbuilder(){
 function playheader() {
     resetHeaderSelected();
     generategames(launcher);
+
     document.getElementById('game-bg').style.display = "flex";
     document.getElementById('gameSelection').style.display = "flex";
     document.getElementById('header1').classList.add('selected'); // ✅ select header1 manually
+
+    // ✅ show info box only on Play page
+    document.querySelector(".informationBox").style.display = "flex";
 }
+
 
 
 function modsheader(){
@@ -430,37 +435,60 @@ function modsheader(){
     generatemods();
     document.getElementById('mods').style.display = "flex";
     document.getElementById('header2').classList.add('selected');
+  
+    // ✅ hide info box when not on Play
+    document.querySelector(".informationBox").style.display = "none";
 }
-function faqsheader(){
+function faqsheader() {
     resetHeaderSelected();
-    document.getElementById('faq').style.display = "flex";
+
+    document.getElementById('faq').style.display = "block";
     document.getElementById('header3').classList.add('selected');
+
+    // ✅ hide info box when not on Play
+    document.querySelector(".informationBox").style.display = "none";
 }
+
 function installationheader(){
     resetHeaderSelected();
     document.getElementById('installations').style.display = "flex";
     document.getElementById('header4').classList.add('selected');
+  
+    // ✅ hide info box when not on Play
+    document.querySelector(".informationBox").style.display = "none";
 }
 function patchnotesheader(){
     resetHeaderSelected();
     generatenotes();
     document.getElementById('patchNotes').style.display = "flex";
     document.getElementById('header6').classList.add('selected');
+  
+    // ✅ hide info box when not on Play
+    document.querySelector(".informationBox").style.display = "none";
 }
 function generalheader(){
     resetHeaderSelected();
     document.getElementById('general').style.display = "flex";
     document.getElementById('header7').classList.add('selected');
+  
+    // ✅ hide info box when not on Play
+    document.querySelector(".informationBox").style.display = "none";
 }
 function accountsheader(){
     resetHeaderSelected();
     document.getElementById('accounts').style.display = "flex";
     document.getElementById('header8').classList.add('selected');
+  
+    // ✅ hide info box when not on Play
+    document.querySelector(".informationBox").style.display = "none";
 }
 function aboutheader(){
     resetHeaderSelected();
     document.getElementById('about').style.display = "flex";
     document.getElementById('header9').classList.add('selected');
+  
+    // ✅ hide info box when not on Play
+    document.querySelector(".informationBox").style.display = "none";
 }
 // Dropdown game options toggle
 function dropdowntoggle(){
