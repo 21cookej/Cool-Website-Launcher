@@ -14,6 +14,13 @@
        "active": true
     },
     {
+       "title": "Eaglercraft Hacked",
+       "version": "1.8.8",
+       "icon": "./assets/images/icons/hacked.png",
+       "link": "https://21cookej.github.io/hacked",
+       "active": true
+    },
+    {
        "title": "Eaglerforge(NEW)",
        "version": "1.8.8",
        "icon": "./assets/images/icons/eaglerforge.png",
@@ -25,6 +32,13 @@
        "version": "1.8.8-v4.0.p4",
        "icon": "./assets/images/icons/resent-client.png",
        "link": "./mc/resentclient/",
+       "active": true
+    },
+    {
+       "title": "Eaglercraft Bootmenu",
+       "version": "1.8.8",
+       "icon": "./assets/images/icons/eaglercraft1.jpg",
+       "link": "https://21cookej.github.io/bootmenu",
        "active": true
     },
     {
