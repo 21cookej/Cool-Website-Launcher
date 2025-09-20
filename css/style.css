@@ -39,7 +39,7 @@ ul {
     padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6, hr, p {
+h1, h2, h3, h4, h5, h6, h7, h8, h9, hr, p {
     margin: 0;
 }
 
@@ -104,7 +104,7 @@ hr {
 .sidebarOptions {
     display: flex;
     height: 5vw;
-    width: 88.3%;
+    width: 88.5%;
     align-items: center;
     justify-content: flex-start;
     gap: 1.5vw;
@@ -115,8 +115,9 @@ hr {
     outline: outset;
     outline-color: #000000;
     margin-left: 0.2vw;
-    outline-width: 0.3vh;
+    outline-width: 0.6vh;
     margin-top: 0.2vh;
+    margin-bottom: 1.1vh;
     background-color: #282828;
 }
 
@@ -133,21 +134,34 @@ hr {
     font-weight: 700;
     border-left: 0.4vw solid var(--ui-select);
     outline: inset;
-    outline-color: #000000;
-    width: 86%;
-    outline-width: 0.1;
+    outline-color: #6d6d6d;
+    width: 86.58%;
+    outline-width: 0.545vh;
     background-color: #1e1e1e;
+    height: 5vw;
+    margin-left: 0.08vh;
+    margin-top: -0.09vh;
+    margin-bottom: 0.9vh;
 }
 
 #gtabs1 img {width: 3vw;}
 #gtabs2 img, #gtabs3 img, #gtabs4 img {width: 2.5vw;}
-#gtabs5 {bottom: 7.5vw;w;width: 14.1vw;}
-#gtabs6 {bottom: 2.5vw;width: 14.1vw;}
+#gtabs5 {
+  bottom: 7.5vw;
+  w;
+  width: 14.1vw;
+  margin-top: 0.2vh;
+  margin-bottom: 2vh;
+}
+#gtabs6 {
+  bottom: 2.5vw;
+  width: 14.1vw;
+  margin-top: 0.2vh;
+  
+}
 #gtabs5 img, #gtabs6 img {width: 2vw;}
 
-#gtabs6 .gTabsText p {
-    text-decoration: line-through;
-}
+
 #gtabs5 .gTabsText p {
     text-decoration: line-through;
 }
@@ -180,7 +194,6 @@ hr {
 .gameHeader {padding: 1.8vw 1.8vw 0;}
 .informationBox {
    /* stays at bottom even if page scrolls */        /* aligns flush with the bottom */
-  left: 16%;  
   height: 100vh;
  /* optional: align to the left */
   width: 90vw;       /* optional: stretch across page */
@@ -188,6 +201,7 @@ hr {
   background-color: var(--ui-main-dark); /* if you want it visible */
   z-index: -1; 
 }
+
 .currentGame {font-size: 1.2vw;}
 
 .gameTabs {
@@ -684,4 +698,39 @@ hr {
     align-items: center;
     justify-content: flex-start;
     font-size: 1.1vw;
+}
+/* Sub-tabs in settings */
+.settingsTabs {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1vw 0;
+  border-bottom: 1px solid #333;
+}
+
+.settingsHeaderButtons {
+  padding: 0.6vw 1.2vw;
+  cursor: pointer;
+  color: #ccc;
+  font-size: 1vw;
+}
+
+.settingsHeaderButtons.selected {
+  color: white;
+  border-bottom: 2px solid #2e7d32; /* green underline */
+}
+
+.settingsContent {
+  padding: 1vw;
+  font-size: 1vw;
+}
+
+.accountButton {
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 0.6vw 1.2vw;
+  margin-top: 0.5vw;
+  border-radius: 0.3vw;
+  cursor: pointer;
 }
