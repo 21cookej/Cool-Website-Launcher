@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -60,10 +60,12 @@
         <div id="gtabs5" class="sidebarOptions sidebarBottom" onclick="errorNA('credits')">
             <img src="./assets/images/sidebar/m-credits.png"><div class="gTabsText"><p> Credits</p></div>
         </div>
-        <div id="gtabs6" class="sidebarOptions sidebarBottom" onclick="errorNA('settings')">
-            <img src="./assets/images/sidebar/m-settings.png"><div class="gTabsText"><p> Settings</p></div>
+        <!-- Sidebar -->
+        <div onclick="settingsTab()" id="gtabs6" class="sidebarOptions sidebarBottom">
+            <img src="./assets/images/sidebar/m-settings.png">
+            <div class="gTabsText"><p> Settings</p></div>
         </div>
-        <div class="launcherVersion"><p>v1.0.00-1.1.1</p></div>
+        <div class="launcherVersion"><p>v1.4.00</p></div>
     </div>
     <div class="mainPage">
         <div class="gameHeader">
@@ -75,6 +77,9 @@
                     <li id="header4" class="headerButtons" onclick="installationheader()">Installations</li>
                     <li id="header5" class="headerButtons" onclick="errorNA('skins')">Skins</li>
                     <li id="header6" class="headerButtons" onclick="patchnotesheader()">Patch Notes</li>
+                    <li id="header7" style="display: none;" class="headerButtons selected" onclick="generalheader()">General</li>
+                    <li id="header8" style="display: none;" class="headerButtons" onclick="accountsheader()">Accounts</li>
+                    <li id="header9" style="display: none;" class="headerButtons" onclick="aboutheader()">About</li>
                 </ul>
         </div>
         <div class="informationBox">
@@ -84,6 +89,7 @@
             <p class="bolded modssubtitle">Community mods for the EaglerForge Installation.</p>
             <div id="modsbox"></div>
         </div>
+        
         <div id="faq">
             <p class="bolded faqtitle">Frequently Asked Questions</p>
             <p>Here are some frequently asked questions about Ampler Launcher.</p>
@@ -94,6 +100,36 @@
             <img id="game-title" src="./assets/images/web-title.png" alt="eaglercraft">
         </div>
         <div id="patchNotes">
+            <div style="padding: 2vh 3vw 7vh;">
+                <p class="bolded patchnotes-title">Versions</p>
+                <div class="versionscontainer">
+                    <input class="versionBox" type="checkbox" onchange="sortnote('game')" checked><p>Game Releases</p><input class="versionBox" type="checkbox" onchange="sortnote('site')" checked><p>Site Releases</p>
+                </div>
+                <hr>
+                <div id="patchnotesbox"></div>
+            </div>
+        </div>
+        <div id="general">
+            <div style="padding: 2vh 3vw 7vh;">
+                <p class="bolded patchnotes-title">Versions</p>
+                <div class="versionscontainer">
+                    <input class="versionBox" type="checkbox" onchange="sortnote('game')" checked><p>Game Releases</p><input class="versionBox" type="checkbox" onchange="sortnote('site')" checked><p>Site Releases</p>
+                </div>
+                <hr>
+                <div id="patchnotesbox"></div>
+            </div>
+        </div>
+        <div id="accounts">
+            <div style="padding: 2vh 3vw 7vh;">
+                <p class="bolded patchnotes-title">Versions</p>
+                <div class="versionscontainer">
+                    <input class="versionBox" type="checkbox" onchange="sortnote('game')" checked><p>Game Releases</p><input class="versionBox" type="checkbox" onchange="sortnote('site')" checked><p>Site Releases</p>
+                </div>
+                <hr>
+                <div id="patchnotesbox"></div>
+            </div>
+        </div>
+        <div id="about">
             <div style="padding: 2vh 3vw 7vh;">
                 <p class="bolded patchnotes-title">Versions</p>
                 <div class="versionscontainer">
