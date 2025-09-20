@@ -7,10 +7,10 @@
        "active": true
     },
     {
-       "title": "Eaglerforge(OLD)",
-       "version": "1.8.8-v1.3.2",
-       "icon": "./assets/images/icons/eaglerforge.png",
-       "link": "./mc/eaglerforge/",
+       "title": "Raft Client V4",
+       "version": "1.8.8",
+       "icon": "./assets/images/icons/raft-client.png",
+       "link": "https://21cookej.github.io/raftclient",
        "active": true
     },
     {
@@ -25,6 +25,13 @@
        "version": "1.8.8-v4.0.p4",
        "icon": "./assets/images/icons/resent-client.png",
        "link": "./mc/resentclient/",
+       "active": true
+    },
+    {
+       "title": "Eaglerforge(OLD)",
+       "version": "1.8.8-v1.3.2",
+       "icon": "./assets/images/icons/eaglerforge.png",
+       "link": "./mc/eaglerforge/",
        "active": true
     },
     {
