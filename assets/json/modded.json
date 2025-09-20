@@ -14,10 +14,10 @@
        "active": true
     },
     {
-       "title": "Solar 3.5",
+       "title": "Dragon X V4.0",
        "version": "1.8.8",
-       "icon": "./assets/images/icons/hacked.png",
-       "link": "./mc/solar/",
+       "icon": "./assets/images/icons/dragonx.png",
+       "link": "./mc/dragonx/",
        "active": false
     },
     {
