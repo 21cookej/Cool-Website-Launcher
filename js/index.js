@@ -330,6 +330,9 @@ function webedition(){
     document.getElementById('game-title').src = './assets/images/web-title.png';
     document.getElementById('gameedition').innerHTML = 'EAGLERCRAFT WEB EDITION';
     document.getElementById('header2').style.display = 'none';
+    document.getElementById('header7').style.display = 'none';
+    document.getElementById('header8').style.display = 'none';
+    document.getElementById('header9').style.display = 'none';
     document.getElementById('gtabs2').classList.add('selected');
 }
 function moddededition(){
@@ -342,6 +345,9 @@ function moddededition(){
     document.getElementById('game-title').src = './assets/images/modded-title.png';
     document.getElementById('gameedition').innerHTML = 'EAGLERCRAFT MODDED';
     document.getElementById('header5').style.display = 'none';
+    document.getElementById('header7').style.display = 'none';
+    document.getElementById('header8').style.display = 'none';
+    document.getElementById('header9').style.display = 'none';
     document.getElementById('gtabs3').classList.add('selected');
 }
 function eaglercontrols(){
@@ -353,19 +359,43 @@ function eaglercontrols(){
     document.getElementById('game-bg').style.backgroundImage = 'url(./assets/images/controls-edition.jpg)';
     document.getElementById('game-title').src = './assets/images/controls-title.png';
     document.getElementById('gameedition').innerHTML = 'EAGLERCRAFT MOBILE/CONTROLLER';
-    document.getElementById('header2').style.display = 'none';
     document.getElementById('header5').style.display = 'none';
+    document.getElementById('header7').style.display = 'none';
+    document.getElementById('header8').style.display = 'none';
+    document.getElementById('header9').style.display = 'none';
     document.getElementById('gtabs4').classList.add('selected');
 }
 
-// Header Options
-function playheader(){
+
+function settingsTab() {
+    launcher = "./assets/json/assisted.json";
+    resetTabSelected();
+    resetHeaderSelected(); // just clear everything
+    generateprofile(4);
+    generategames(launcher);
+    generatelaunchers(launcher);
+    document.getElementById('game-bg').style.backgroundImage = 'url(./assets/images/controls-edition.jpg)';
+    document.getElementById('game-title').src = './assets/images/controls-title.png';
+    document.getElementById('gameedition').innerHTML = 'SETTINGS';
+    document.getElementById('header1').style.display = 'none';
+    document.getElementById('header2').style.display = 'none';
+    document.getElementById('header3').style.display = 'none';
+    document.getElementById('header4').style.display = 'none';
+    document.getElementById('header5').style.display = 'none';
+    document.getElementById('header6').style.display = 'none';
+    document.getElementById('header7').classList.add('selected'); // ✅ select header7 manually
+    document.getElementById('gtabs6').classList.add('selected');
+}
+
+function playheader() {
     resetHeaderSelected();
     generategames(launcher);
     document.getElementById('game-bg').style.display = "flex";
     document.getElementById('gameSelection').style.display = "flex";
-    document.getElementById('header1').classList.add('selected');
+    document.getElementById('header1').classList.add('selected'); // ✅ select header1 manually
 }
+
+
 function modsheader(){
     resetHeaderSelected();
     generatemods();
@@ -388,7 +418,21 @@ function patchnotesheader(){
     document.getElementById('patchNotes').style.display = "flex";
     document.getElementById('header6').classList.add('selected');
 }
-
+function generalheader(){
+    resetHeaderSelected();
+    document.getElementById('general').style.display = "flex";
+    document.getElementById('header7').classList.add('selected');
+}
+function accountsheader(){
+    resetHeaderSelected();
+    document.getElementById('accounts').style.display = "flex";
+    document.getElementById('header8').classList.add('selected');
+}
+function aboutheader(){
+    resetHeaderSelected();
+    document.getElementById('about').style.display = "flex";
+    document.getElementById('header9').classList.add('selected');
+}
 // Dropdown game options toggle
 function dropdowntoggle(){
     if (dropdown.style.visibility === 'hidden') {
@@ -404,30 +448,41 @@ function dropdowntoggle(){
 function resetTabSelected() {
     while (dropdown.firstChild) {dropdown.removeChild(dropdown.firstChild)};
     while (installations.firstChild) {installations.removeChild(installations.firstChild)};
-    for (var i = 1; i < 6; i++) { 
+    for (var i = 1; i <= 9; i++) {   // loop through ALL headers
         let gtabs = document.getElementById('gtabs' + [i]);
         let headers = document.getElementById('header' + [i]);
-        gtabs.classList.remove('selected');
-        headers.style.display = "block";
+        if (gtabs) gtabs.classList.remove('selected');
+        if (headers) headers.style.display = "block";
     };
     playheader();
 }
 
+
 function resetHeaderSelected() {
-    while (dropdown.firstChild) {dropdown.removeChild(dropdown.firstChild)};
-    while (mods.firstChild) {mods.removeChild(mods.firstChild)};
-    while (notes.firstChild) {notes.removeChild(notes.firstChild)};
-    for (var i = 1; i < 7; i++) { 
-        let headers = document.getElementById('header' + [i]);
-        headers.classList.remove('selected'); 
+    // clear children
+    while (dropdown.firstChild) { dropdown.removeChild(dropdown.firstChild) };
+    while (mods.firstChild) { mods.removeChild(mods.firstChild) };
+    while (notes.firstChild) { notes.removeChild(notes.firstChild) };
+
+    // remove all selected classes
+    for (let i = 1; i < 10; i++) {  // 1–9 covers all headers
+        let headers = document.getElementById('header' + i);
+        if (headers) headers.classList.remove('selected');
     };
+
+    // hide all sections
     document.getElementById('game-bg').style.display = "none";
     document.getElementById('gameSelection').style.display = "none";
     document.getElementById('mods').style.display = "none";
     document.getElementById('faq').style.display = "none";
     document.getElementById('installations').style.display = "none";
     document.getElementById('patchNotes').style.display = "none";
+    document.getElementById('general').style.display = "none";
+    document.getElementById('accounts').style.display = "none";
+    document.getElementById('about').style.display = "none";
 }
+
+
 
 // Prevents touchscreen move
 window.addEventListener("scroll", preventMotion, false);
