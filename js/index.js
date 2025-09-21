@@ -289,7 +289,7 @@ function generatenotes() {
             });
 
             const patchnoteimg = document.createElement("img");
-            patchnoteimg.src = "./assets/images/" + note.icon;
+            patchnoteimg.src = note.icon;
 
             const patchnotedetails = document.createElement("div");
             patchnotedetails.className = "bolded patchnotedetails";
