@@ -792,3 +792,10 @@ hr {
     margin: 0.5vh 0 1.5vh; 
 }
 
+.creditscontainer g {
+    flex-direction: column;
+    display: flex;
+    gap: 0.5vw; 
+    margin-left: 3vh;
+}
+
