@@ -4,7 +4,7 @@
         "version": "v1.0.00",
         "description": "Eagler Launcher was realease along with addition of settings, credits, builder, and more clients.",
         "date": "Sunday, September 21th, 2025",
-        "icon": ".github/assets/launcher.png",
+        "icon": src=".github/assets/launcher.png",
         "type": "site",
         "notes": []
     }
