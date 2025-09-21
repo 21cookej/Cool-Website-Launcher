@@ -398,6 +398,38 @@ function settingsTab() {
     document.getElementById('gtabs6').classList.add('selected');
 }
 
+function settingsTab() {
+    launcher = "./assets/json/assisted.json";
+    resetTabSelected();
+    resetHeaderSelected(); // just clear everything
+    generateprofile(3);
+    generategames(launcher);
+    generatelaunchers(launcher);
+    resetHeaderSelected(); // ✅ hides everything
+
+    // ✅ Show the General section immediately
+    document.getElementById('general').style.display = "flex";
+    document.getElementById('header1').style.display = 'none';
+    document.getElementById('header2').style.display = 'none';
+    document.getElementById('header3').style.display = 'none';
+    document.getElementById('header4').style.display = 'none';
+    document.getElementById('header5').style.display = 'none';
+    document.getElementById('header6').style.display = 'none';
+    document.querySelector(".informationBox").style.display = "none";
+
+    // ✅ Select the Settings header
+    document.getElementById('header7').classList.add('selected');
+
+    // ✅ Highlight the General tab inside settings
+    document.getElementById('gtabs6').classList.add('selected');
+
+    // (optional) update background/title for Settings if you want
+    document.getElementById('game-bg').style.backgroundImage = 'url(./assets/images/settings-bg.jpg)';
+    document.getElementById('game-title').src = './assets/images/settings-title.png';
+    document.getElementById('gameedition').innerHTML = 'SETTINGS';
+}
+
+
 function eaglerbuilder(){
     launcher = "./assets/json/builder.json";
     resetTabSelected();
