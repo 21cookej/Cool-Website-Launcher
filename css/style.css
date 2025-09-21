@@ -48,6 +48,10 @@ hr {
     width: 74vw;
 }
 
+.hr1 {
+  margin-top: 1vh;   /* adds vertical space */
+}
+
 .bolded {
     font-weight: 800;
 }
@@ -743,3 +747,44 @@ hr {
   border-radius: 0.3vw;
   cursor: pointer;
 }
+
+.settingBox {
+    width: 2.5vh;
+    height: 2.5vh;
+    appearance: none;
+    border: 0.1vw solid #0c6e3d;
+    cursor: pointer;
+    vertical-align: middle;   /* aligns checkbox with text */
+    margin-right: 0.6em;      /* space between checkbox and text */
+    display: inline-block;    /* keeps it inline with label text */
+   
+}
+
+.settingBox:checked {
+    background-color: var(--ui-select);
+}
+
+
+
+.settingscontainer {
+    flex-direction: column;
+    display: flex;
+    gap: 0.5vw;
+    margin: 0.5vh 0 1.5vh; 
+}
+
+.settingscontainer f {
+  margin: 0.5vh 0;   /* space above/below each <p> */
+}
+
+.settingscontainer hr {
+  margin: 1.5vh 0;   /* extra gap before/after the separator */
+}
+
+.settingscontainer p {
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+    margin: 0.5vh 0 1.5vh; 
+}
+
