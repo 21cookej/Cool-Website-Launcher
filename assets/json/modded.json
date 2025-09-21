@@ -39,7 +39,7 @@
        "version": "1.8.8-v4.0.p4",
        "icon": "./assets/images/icons/resent-client.png",
        "link": "./mc/resentclient/",
-       "active": true
+       "active": false
     },
     {
        "title": "Eaglercraft Bootmenu",
