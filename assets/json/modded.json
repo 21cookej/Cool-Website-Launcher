@@ -60,7 +60,7 @@
        "version": "1.8.8-v4.5-u34",
        "icon": "./assets/images/mc-icons/skull.png",
        "link": "./mc/shadowclient/",
-       "active": true
+       "active": false
     },
     {
        "title": "Starlike",
