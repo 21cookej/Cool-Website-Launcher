@@ -39,7 +39,7 @@ ul {
     padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6, h7, h8, h9, hr, p {
+h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, hr, p {
     margin: 0;
 }
 
@@ -165,9 +165,6 @@ hr {
 #gtabs5 img, #gtabs6 img {width: 2vw;}
 
 
-#gtabs5 .gTabsText p {
-    text-decoration: line-through;
-}
 #gtabs1 .gTabsText p {
     text-decoration: line-through;
 }
@@ -784,6 +781,13 @@ hr {
 .settingscontainer p {
     display: flex;
     align-items: center;
+    gap: 0.5vw;
+    margin: 0.5vh 0 1.5vh; 
+}
+
+.creditscontainer {
+    flex-direction: column;
+    display: flex;
     gap: 0.5vw;
     margin: 0.5vh 0 1.5vh; 
 }
