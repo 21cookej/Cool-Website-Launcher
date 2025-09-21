@@ -343,6 +343,7 @@ function webedition(){
     document.getElementById('header7').style.display = 'none';
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
+    document.getElementById('header10').style.display = 'none';
     document.getElementById('gtabs2').classList.add('selected');
 }
 function moddededition(){
@@ -358,6 +359,7 @@ function moddededition(){
     document.getElementById('header7').style.display = 'none';
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
+    document.getElementById('header10').style.display = 'none';
     document.getElementById('gtabs3').classList.add('selected');
 }
 function eaglercontrols(){
@@ -374,35 +376,13 @@ function eaglercontrols(){
     document.getElementById('header7').style.display = 'none';
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
+    document.getElementById('header10').style.display = 'none';
     document.getElementById('gtabs4').classList.add('selected');
 }
 
-
 function settingsTab() {
-    launcher = "./assets/json/assisted.json";
     resetTabSelected();
     resetHeaderSelected(); // just clear everything
-    generateprofile(3);
-    generategames(launcher);
-    generatelaunchers(launcher);
-    document.getElementById('game-bg').style.backgroundImage = 'url(./assets/images/controls-edition.jpg)';
-    document.getElementById('game-title').src = './assets/images/controls-title.png';
-    document.getElementById('gameedition').innerHTML = 'SETTINGS';
-    document.getElementById('header1').style.display = 'none';
-    document.getElementById('header2').style.display = 'none';
-    document.getElementById('header3').style.display = 'none';
-    document.getElementById('header4').style.display = 'none';
-    document.getElementById('header5').style.display = 'none';
-    document.getElementById('header6').style.display = 'none';
-    document.getElementById('header7').classList.add('selected'); // ✅ select header7 manually
-    document.getElementById('gtabs6').classList.add('selected');
-}
-
-function settingsTab() {
-    launcher = "./assets/json/assisted.json";
-    resetTabSelected();
-    resetHeaderSelected(); // just clear everything
-    generateprofile(3);
     generategames(launcher);
     generatelaunchers(launcher);
     resetHeaderSelected(); // ✅ hides everything
@@ -415,6 +395,7 @@ function settingsTab() {
     document.getElementById('header4').style.display = 'none';
     document.getElementById('header5').style.display = 'none';
     document.getElementById('header6').style.display = 'none';
+    document.getElementById('header10').style.display = 'none';
     document.querySelector(".informationBox").style.display = "none";
 
     // ✅ Select the Settings header
@@ -427,6 +408,34 @@ function settingsTab() {
     document.getElementById('game-bg').style.backgroundImage = 'url(./assets/images/settings-bg.jpg)';
     document.getElementById('game-title').src = './assets/images/settings-title.png';
     document.getElementById('gameedition').innerHTML = 'SETTINGS';
+}
+
+function creditsTab() {
+    resetTabSelected();
+    resetHeaderSelected(); // just clear everything
+    generategames(launcher);
+    generatelaunchers(launcher);
+    resetHeaderSelected(); // ✅ hides everything
+
+    // ✅ Show the General section immediately
+    document.getElementById('header1').style.display = 'none';
+    document.getElementById('header2').style.display = 'none';
+    document.getElementById('header3').style.display = 'none';
+    document.getElementById('header4').style.display = 'none';
+    document.getElementById('header5').style.display = 'none';
+    document.getElementById('header6').style.display = 'none';
+    document.getElementById('header7').style.display = 'none';
+    document.getElementById('header8').style.display = 'none';
+    document.getElementById('header9').style.display = 'none';
+    document.getElementById('credit').style.display = "flex";
+    document.getElementById('header10').classList.add('selected');
+    document.querySelector(".informationBox").style.display = "none";
+    document.getElementById('gtabs5').classList.add('selected');
+
+    // (optional) update background/title for Settings if you want
+    document.getElementById('game-bg').style.backgroundImage = 'url(./assets/images/credits-bg.jpg)';
+    document.getElementById('game-title').src = './assets/images/credits-title.png';
+    document.getElementById('gameedition').innerHTML = 'CREDITS';
 }
 
 
@@ -446,6 +455,7 @@ function eaglerbuilder(){
     document.getElementById('header7').style.display = 'none';
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
+    document.getElementById('header10').style.display = 'none';
     document.getElementById('gtabs7').classList.add('selected');
 }
 
@@ -523,6 +533,15 @@ function aboutheader(){
     // ✅ hide info box when not on Play
     document.querySelector(".informationBox").style.display = "none";
 }
+function creditheader(){
+    resetHeaderSelected();
+    document.getElementById('credit').style.display = "flex";
+    document.getElementById('header10').classList.add('selected');
+    
+  
+    // ✅ hide info box when not on Play
+    document.querySelector(".informationBox").style.display = "none";
+}
 // Dropdown game options toggle
 function dropdowntoggle(){
     if (dropdown.style.visibility === 'hidden') {
@@ -538,7 +557,7 @@ function dropdowntoggle(){
 function resetTabSelected() {
     while (dropdown.firstChild) {dropdown.removeChild(dropdown.firstChild)};
     while (installations.firstChild) {installations.removeChild(installations.firstChild)};
-    for (var i = 1; i <= 9; i++) {   // loop through ALL headers
+    for (var i = 1; i <= 10; i++) {   // loop through ALL headers
         let gtabs = document.getElementById('gtabs' + [i]);
         let headers = document.getElementById('header' + [i]);
         if (gtabs) gtabs.classList.remove('selected');
@@ -555,7 +574,7 @@ function resetHeaderSelected() {
     while (notes.firstChild) { notes.removeChild(notes.firstChild) };
 
     // remove all selected classes
-    for (let i = 1; i < 10; i++) {  // 1–9 covers all headers
+    for (let i = 1; i < 11; i++) {  // 1–9 covers all headers
         let headers = document.getElementById('header' + i);
         if (headers) headers.classList.remove('selected');
     };
@@ -570,6 +589,7 @@ function resetHeaderSelected() {
     document.getElementById('general').style.display = "none";
     document.getElementById('accounts').style.display = "none";
     document.getElementById('about').style.display = "none";
+    document.getElementById('credit').style.display = "none";
 }
 
 
