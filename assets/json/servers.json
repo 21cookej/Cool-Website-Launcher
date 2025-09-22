@@ -2,7 +2,7 @@
   {
     "title": "A**pixel",
     "description": "Bedwars and MiniGames Server",
-    "icon": "./assets/images/mod-icons/cursor.png",
+    "icon": "https://minecraft-eaglercraft-launcher.vercel.app/assets/images/mod-icons/cursor.png",
     "link": "wss://mc.asspixel.net/",
     "active": true
   }
