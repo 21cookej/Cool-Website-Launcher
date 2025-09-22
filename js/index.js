@@ -174,9 +174,11 @@ function generateServers() {
 
                 // Toggle select/deselect
                 serverOption.addEventListener("click", () => {
-                    if (localStorage.getItem(server.title) === "true") {
-                        server.active = false;
-                        localStorage.setItem(server.title, server.active);
+                    let isActive = localStorage.getItem(server.title) === "true";
+
+                    if (isActive) {
+                        // Turn off
+                        localStorage.setItem(server.title, "false");
                         serverOption.classList.remove("selected");
                         serversLauncher = serversLauncher.filter(
                             (obj) => obj !== server.link
@@ -187,10 +189,12 @@ function generateServers() {
                         );
                         console.log("Server Off");
                     } else {
-                        server.active = true;
-                        localStorage.setItem(server.title, server.active);
+                        // Turn on
+                        localStorage.setItem(server.title, "true");
                         serverOption.classList.add("selected");
-                        serversLauncher.push(server.link);
+                        if (!serversLauncher.includes(server.link)) {
+                            serversLauncher.push(server.link);
+                        }
                         localStorage.setItem(
                             "serversLauncher",
                             JSON.stringify(serversLauncher)
@@ -202,6 +206,9 @@ function generateServers() {
                 // Restore selected state if saved
                 if (localStorage.getItem(server.title) === "true") {
                     serverOption.classList.add("selected");
+                    if (!serversLauncher.includes(server.link)) {
+                        serversLauncher.push(server.link);
+                    }
                 }
 
                 // Image
@@ -232,11 +239,15 @@ function generateServers() {
                 serverOption.appendChild(serverDetails);
                 servers.appendChild(serverOption);
             });
+
+            // Save the launcher array once everything is restored
+            localStorage.setItem("serversLauncher", JSON.stringify(serversLauncher));
         })
         .catch((err) => console.error("Fetch error:", err));
 }
 
 generateServers();
+
 
 
 
