@@ -448,17 +448,27 @@ hr {
     overflow-y: scroll;
 }
 
+.serverketplace-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* ✅ centers children horizontally */
+    background-color: #999;
+    padding: 2vh 0;
+    width: 100%;           /* span full container width */
+}
+
 .serverketplace-title {
-    margin: 4vh 0 1vh;
-    margin-left: 15%;
-    width: 58vw;
+    width: 58vw;           /* scale image */
+    margin: 0 0 1vh 0;     /* space below image */
+    display: block;
 }
 
 .serverssubtitle {
     font-size: 1.6vw;
-    margin-left: -55%;
-    margin-top: 3%;
+    margin: 0;             /* remove weird margins */
+    text-align: center;    /* ✅ center the text itself */
 }
+
 
 #serversbox {
     display: flex;
@@ -467,6 +477,7 @@ hr {
     gap: 5vw 1.5vw;
     padding: 4vh 0 7vh;
     z-index: 4;
+    
 }
 
 .serveroption {
