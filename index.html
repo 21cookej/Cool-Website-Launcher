@@ -226,54 +226,6 @@
             </div>
         </div>
        
-        <script>
-            // Load saved settings
-            document.querySelectorAll('.settingBox').forEach(box => {
-                const key = box.dataset.setting;
-                if(localStorage.getItem(key) === "true") {
-                    box.checked = true;
-                } else if(localStorage.getItem(key) === "false") {
-                    box.checked = false;
-                }
-
-                // Save on change
-                box.addEventListener('change', () => {
-                    localStorage.setItem(key, box.checked);
-                    applySetting(key, box.checked);
-                });
-            });
-
-            // Example function to apply setting changes dynamically
-            function applySetting(key, value) {
-                switch(key) {
-                    case "keepLauncherOpen":
-                        console.log("Keep Launcher Open:", value);
-                        break;
-                    case "animatePages":
-                        console.log("Animate Pages:", value);
-                        break;
-                    case "animatePlayButton":
-                        console.log("Animate Play Button:", value);
-                        break;
-                    case "bigText":
-                        document.body.style.fontSize = value ? "1.2em" : "1em";
-                        break;
-                    case "disableVideoAutoplay":
-                        console.log("Video Autoplay Disabled:", value);
-                        break;
-                    case "quickPlay":
-                        console.log("Quick Play Enabled:", value);
-                        break;
-                }
-            }
-
-            // Apply all saved settings on load
-            document.addEventListener("DOMContentLoaded", () => {
-                document.querySelectorAll('.settingBox').forEach(box => {
-                    applySetting(box.dataset.setting, box.checked);
-                });
-            });
-        </script>
         <div id="gameSelection">
                 <div class="dropdownSelector" onclick="dropdowntoggle()">
                     <div style="display: flex; gap: 1vw;">
