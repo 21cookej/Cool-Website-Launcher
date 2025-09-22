@@ -318,7 +318,7 @@ hr {
     align-items: center;
     width: 21.5vw;
     height: 5vw;
-    background-image: url(../assets/images/play.png);
+    background-image: url(https://minecraft-eaglercraft-launcher.vercel.app/assets/images/play.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -327,16 +327,16 @@ hr {
 
 .playButton:hover {
     cursor: pointer;
-    background-image: url(../assets/images/play-hover.png);
+    background-image: url(https://minecraft-eaglercraft-launcher.vercel.app/assets/images/play-hover.png);
     transform: scale(1.05);
 }
 
 .username {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 3vw;
-    font-size: 1.35vw;
+    position: fixed;
+    top: 13vw;
+    left: 20vw;
+    font-size: 0.7vw;
+    z-index: 5;
 }
 
 @keyframes drop {
@@ -872,4 +872,27 @@ hr {
     display: flex;
     gap: 0.5vw; 
     margin-left: 3vh;
+}
+
+.username.centeredIcon.bolded {
+    font-weight: bold;
+    font-size: 1.5em;       /* change font size here */
+    margin-top: 20px;     /* adjust vertical position */
+    color: #ffffff;       /* username text color */
+}
+
+/* Global username styling */
+.usernameDisplay {
+    position: absolute;
+    top: 10px;       /* adjust location */
+    right: 20px;     /* move horizontally */
+    z-index: 999;
+    font-size: 1.5em;
+}
+
+.username-text {
+    font-size: 1em;   /* size */
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
