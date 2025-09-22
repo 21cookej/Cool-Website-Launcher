@@ -161,59 +161,6 @@ function generatemods() {
     })
 };
 
-const serversBox = document.getElementById("serversbox");
-
-function generateServers() {
-    fetch("./assets/json/servers.json")
-        .then((response) => response.json())
-        .then((data) => {
-            data.forEach((server) => {
-                const serverOption = document.createElement("div");
-                serverOption.className = "serveroption";
-
-                // Click -> copy link
-                serverOption.addEventListener("click", () => {
-                    navigator.clipboard.writeText(server.link).then(() => {
-                        console.log("Copied:", server.link);
-                        alert(`Copied server link: ${server.link}`);
-                    });
-                });
-
-                // Icon
-                const serverImg = document.createElement("img");
-                serverImg.src = server.icon;
-
-                // Details container
-                const serverDetails = document.createElement("div");
-                serverDetails.className = "serverdetails";
-
-                const serverTitle = document.createElement("p");
-                serverTitle.className = "bolded modtitle";
-                serverTitle.textContent = server.title;
-
-                const serverAuthor = document.createElement("p");
-                serverAuthor.className = "serverauthor";
-                serverAuthor.textContent = server.author ?? "Unknown Author";
-
-                const serverDesc = document.createElement("p");
-                serverDesc.textContent = server.description;
-
-                serverDetails.appendChild(serverTitle);
-                serverDetails.appendChild(serverAuthor);
-                serverDetails.appendChild(serverDesc);
-
-                serverOption.appendChild(serverImg);
-                serverOption.appendChild(serverDetails);
-
-                serversBox.appendChild(serverOption);
-            });
-        });
-}
-
-generateServers();
-
-
-
 const installations = document.getElementById("installationsbox");
 function generatelaunchers(path) {
     fetch(path).then((response) => response.json()).then((data) => {
