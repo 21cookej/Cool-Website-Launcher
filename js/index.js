@@ -746,6 +746,28 @@ function preventMotion(event)
 
 
 document.addEventListener("DOMContentLoaded", () => {
+    const playButton = document.getElementById("playbutton");
+
+    playButton.addEventListener("click", (e) => {
+        // Always grab the latest keepLauncherOpen setting
+        const keepOpen = localStorage.getItem("keepLauncherOpen") === "true";
+        const gameUrl = playButton.getAttribute("href");
+
+        if (keepOpen) {
+            e.preventDefault(); // Stop normal navigation
+            window.open(gameUrl, "_blank"); // Open in new tab
+            console.log("Opened game in new tab (launcher kept open)");
+        } else {
+            console.log("Opened game in same tab (launcher closed)");
+            // Default <a> behavior continues (same tab)
+        }
+    });
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
     const inputEl = document.getElementById('accountUsernameInput');
     const saveBtn = document.getElementById('saveUsernameBtn');
     const usernameEls = document.querySelectorAll('.username-text');
@@ -860,6 +882,57 @@ function loadAboutSection() {
 
 // Run when page loads
 loadAboutSection();
+
+
+
+
+
+// Load saved settings
+            document.querySelectorAll('.settingBox').forEach(box => {
+                const key = box.dataset.setting;
+                if(localStorage.getItem(key) === "true") {
+                    box.checked = true;
+                } else if(localStorage.getItem(key) === "false") {
+                    box.checked = false;
+                }
+
+                // Save on change
+                box.addEventListener('change', () => {
+                    localStorage.setItem(key, box.checked);
+                    applySetting(key, box.checked);
+                });
+            });
+
+            // Example function to apply setting changes dynamically
+            function applySetting(key, value) {
+                switch(key) {
+                    case "keepLauncherOpen":
+                        console.log("Keep Launcher Open:", value);
+                        break;
+                    case "animatePages":
+                        console.log("Animate Pages:", value);
+                        break;
+                    case "animatePlayButton":
+                        console.log("Animate Play Button:", value);
+                        break;
+                    case "bigText":
+                        document.body.style.fontSize = value ? "1.2em" : "1em";
+                        break;
+                    case "disableVideoAutoplay":
+                        console.log("Video Autoplay Disabled:", value);
+                        break;
+                    case "quickPlay":
+                        console.log("Quick Play Enabled:", value);
+                        break;
+                }
+            }
+
+            // Apply all saved settings on load
+            document.addEventListener("DOMContentLoaded", () => {
+                document.querySelectorAll('.settingBox').forEach(box => {
+                    applySetting(box.dataset.setting, box.checked);
+                });
+            });
 
 
 
