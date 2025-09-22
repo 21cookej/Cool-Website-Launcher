@@ -162,54 +162,82 @@ function generatemods() {
 };
 
 const servers = document.getElementById("serversbox");
+let serversLauncher = JSON.parse(localStorage.getItem("serversLauncher")) || [];
 
 function generateServers() {
     fetch("./assets/json/servers.json")
         .then((response) => response.json())
         .then((data) => {
             data.forEach((server) => {
-                const serveroption = document.createElement("div");
-                serveroption.className = "serveroption";
+                const serverOption = document.createElement("div");
+                serverOption.className = "serveroption";
 
-                // Click -> copy server link
-                serveroption.addEventListener("click", () => {
-                    navigator.clipboard.writeText(server.link).then(() => {
-                        console.log("Copied:", server.link);
-                        alert(`Copied server link: ${server.link}`);
-                    });
+                // Toggle select/deselect
+                serverOption.addEventListener("click", () => {
+                    if (localStorage.getItem(server.title) === "true") {
+                        server.active = false;
+                        localStorage.setItem(server.title, server.active);
+                        serverOption.classList.remove("selected");
+                        serversLauncher = serversLauncher.filter(
+                            (obj) => obj !== server.link
+                        );
+                        localStorage.setItem(
+                            "serversLauncher",
+                            JSON.stringify(serversLauncher)
+                        );
+                        console.log("Server Off");
+                    } else {
+                        server.active = true;
+                        localStorage.setItem(server.title, server.active);
+                        serverOption.classList.add("selected");
+                        serversLauncher.push(server.link);
+                        localStorage.setItem(
+                            "serversLauncher",
+                            JSON.stringify(serversLauncher)
+                        );
+                        console.log("Server On");
+                    }
                 });
 
+                // Restore selected state if saved
+                if (localStorage.getItem(server.title) === "true") {
+                    serverOption.classList.add("selected");
+                }
+
                 // Image
-                const serveroptionimg = document.createElement("img");
-                serveroptionimg.src = server.icon;
+                const serverOptionImg = document.createElement("img");
+                serverOptionImg.src = server.icon;
 
                 // Details container
-                const serverdetails = document.createElement("div");
-                serverdetails.className = "serverdetails";
+                const serverDetails = document.createElement("div");
+                serverDetails.className = "serverdetails";
 
-                const serverdetailtitle = document.createElement("p");
-                serverdetailtitle.className = "bolded servertitle";
-                serverdetailtitle.innerHTML = server.title;
+                const serverDetailTitle = document.createElement("p");
+                serverDetailTitle.className = "bolded servertitle";
+                serverDetailTitle.innerHTML = server.title;
 
-                const serverdetailauthor = document.createElement("p");
-                serverdetailauthor.className = "serverauthor";
-                serverdetailauthor.innerHTML = server.author ?? "Unknown Author";
+                const serverDetailAuthor = document.createElement("p");
+                serverDetailAuthor.className = "serverauthor";
+                serverDetailAuthor.innerHTML =
+                    server.author ?? "Unknown Author";
 
-                const serverdetaildesc = document.createElement("p");
-                serverdetaildesc.innerHTML = server.description;
+                const serverDetailDesc = document.createElement("p");
+                serverDetailDesc.innerHTML = server.description;
 
-                serverdetails.appendChild(serverdetailtitle);
-                serverdetails.appendChild(serverdetailauthor);
-                serverdetails.appendChild(serverdetaildesc);
+                serverDetails.appendChild(serverDetailTitle);
+                serverDetails.appendChild(serverDetailAuthor);
+                serverDetails.appendChild(serverDetailDesc);
 
-                serveroption.appendChild(serveroptionimg);
-                serveroption.appendChild(serverdetails);
-                servers.appendChild(serveroption);
+                serverOption.appendChild(serverOptionImg);
+                serverOption.appendChild(serverDetails);
+                servers.appendChild(serverOption);
             });
-        });
+        })
+        .catch((err) => console.error("Fetch error:", err));
 }
 
 generateServers();
+
 
 
 
@@ -397,6 +425,7 @@ function webedition(){
     document.getElementById('header9').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
     document.getElementById('header11').style.display = 'none';
+    document.getElementById('serverketplace-header').style.display = "none";
     document.getElementById('gtabs2').classList.add('selected');
 }
 function moddededition(){
@@ -414,6 +443,7 @@ function moddededition(){
     document.getElementById('header9').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
     document.getElementById('header11').style.display = 'none';
+    document.getElementById('serverketplace-header').style.display = "none";
     document.getElementById('gtabs3').classList.add('selected');
 }
 function eaglercontrols(){
@@ -432,6 +462,7 @@ function eaglercontrols(){
     document.getElementById('header9').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
     document.getElementById('header11').style.display = 'none';
+    document.getElementById('serverketplace-header').style.display = "none";
     document.getElementById('gtabs4').classList.add('selected');
 }
 
@@ -452,6 +483,7 @@ function settingsTab() {
     document.getElementById('header6').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
     document.getElementById('header11').style.display = 'none';
+    document.getElementById('serverketplace-header').style.display = "none";
     document.querySelector(".informationBox").style.display = "none";
 
     // ✅ Select the Settings header
@@ -475,6 +507,7 @@ function creditsTab() {
 
     // ✅ Show the General section immediately
     document.getElementById('header1').style.display = 'none';
+    document.getElementById('serverketplace-header').style.display = "none";
     document.getElementById('header2').style.display = 'none';
     document.getElementById('header3').style.display = 'none';
     document.getElementById('header4').style.display = 'none';
@@ -514,6 +547,7 @@ function eaglerbuilder(){
     document.getElementById('header9').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
     document.getElementById('header11').style.display = 'none';
+    document.getElementById('serverketplace-header').style.display = "none";
     document.getElementById('gtabs7').classList.add('selected');
 }
 
@@ -535,6 +569,7 @@ function serversTab() {
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
+    document.getElementById('serverketplace-header').style.display = "flex";
     document.getElementById('server').style.display = "flex";
     document.getElementById('header11').classList.add('selected');
     document.querySelector(".informationBox").style.display = "none";
