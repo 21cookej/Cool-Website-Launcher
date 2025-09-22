@@ -449,7 +449,7 @@ hr {
 }
 
 .serverketplace-header {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;   /* ✅ centers children horizontally */
     padding: 2vh 0;
