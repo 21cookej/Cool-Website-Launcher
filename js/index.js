@@ -631,6 +631,16 @@ function creditheader(){
     // ✅ hide info box when not on Play
     document.querySelector(".informationBox").style.display = "none";
 }
+
+function serverheader(){
+    resetHeaderSelected();
+    generatemods();
+    document.getElementById('server').style.display = "flex";
+    document.getElementById('header11').classList.add('selected');
+  
+    // ✅ hide info box when not on Play
+    document.querySelector(".informationBox").style.display = "none";
+}
 // Dropdown game options toggle
 function dropdowntoggle(){
     if (dropdown.style.visibility === 'hidden') {
@@ -646,7 +656,7 @@ function dropdowntoggle(){
 function resetTabSelected() {
     while (dropdown.firstChild) {dropdown.removeChild(dropdown.firstChild)};
     while (installations.firstChild) {installations.removeChild(installations.firstChild)};
-    for (var i = 1; i <= 10; i++) {   // loop through ALL headers
+    for (var i = 1; i <= 11; i++) {   // loop through ALL headers
         let gtabs = document.getElementById('gtabs' + [i]);
         let headers = document.getElementById('header' + [i]);
         if (gtabs) gtabs.classList.remove('selected');
@@ -663,7 +673,7 @@ function resetHeaderSelected() {
     while (notes.firstChild) { notes.removeChild(notes.firstChild) };
 
     // remove all selected classes
-    for (let i = 1; i < 11; i++) {  // 1–9 covers all headers
+    for (let i = 1; i < 12; i++) {  // 1–11 covers all headers
         let headers = document.getElementById('header' + i);
         if (headers) headers.classList.remove('selected');
     };
