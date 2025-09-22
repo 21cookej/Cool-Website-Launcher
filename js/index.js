@@ -161,8 +161,7 @@ function generatemods() {
     })
 };
 
-const servers = document.getElementById("serversbox");
-let serversLauncher = JSON.parse(localStorage.getItem("serversLauncher")) || [];
+const serversBox = document.getElementById("serversbox");
 
 function generateServers() {
     fetch("./assets/json/servers.json")
@@ -172,83 +171,46 @@ function generateServers() {
                 const serverOption = document.createElement("div");
                 serverOption.className = "serveroption";
 
-                // Toggle select/deselect
+                // Click -> copy link
                 serverOption.addEventListener("click", () => {
-                    let isActive = localStorage.getItem(server.title) === "true";
-
-                    if (isActive) {
-                        // Turn off
-                        localStorage.setItem(server.title, "false");
-                        serverOption.classList.remove("selected");
-                        serversLauncher = serversLauncher.filter(
-                            (obj) => obj !== server.link
-                        );
-                        localStorage.setItem(
-                            "serversLauncher",
-                            JSON.stringify(serversLauncher)
-                        );
-                        console.log("Server Off");
-                    } else {
-                        // Turn on
-                        localStorage.setItem(server.title, "true");
-                        serverOption.classList.add("selected");
-                        if (!serversLauncher.includes(server.link)) {
-                            serversLauncher.push(server.link);
-                        }
-                        localStorage.setItem(
-                            "serversLauncher",
-                            JSON.stringify(serversLauncher)
-                        );
-                        console.log("Server On");
-                    }
+                    navigator.clipboard.writeText(server.link).then(() => {
+                        console.log("Copied:", server.link);
+                        alert(`Copied server link: ${server.link}`);
+                    });
                 });
 
-                // Restore selected state if saved
-                if (localStorage.getItem(server.title) === "true") {
-                    serverOption.classList.add("selected");
-                    if (!serversLauncher.includes(server.link)) {
-                        serversLauncher.push(server.link);
-                    }
-                }
-
-                // Image
-                const serverOptionImg = document.createElement("img");
-                serverOptionImg.src = server.icon;
+                // Icon
+                const serverImg = document.createElement("img");
+                serverImg.src = server.icon;
 
                 // Details container
                 const serverDetails = document.createElement("div");
                 serverDetails.className = "serverdetails";
 
-                const serverDetailTitle = document.createElement("p");
-                serverDetailTitle.className = "bolded servertitle";
-                serverDetailTitle.innerHTML = server.title;
+                const serverTitle = document.createElement("p");
+                serverTitle.className = "bolded modtitle";
+                serverTitle.textContent = server.title;
 
-                const serverDetailAuthor = document.createElement("p");
-                serverDetailAuthor.className = "serverauthor";
-                serverDetailAuthor.innerHTML =
-                    server.author ?? "Unknown Author";
+                const serverAuthor = document.createElement("p");
+                serverAuthor.className = "serverauthor";
+                serverAuthor.textContent = server.author ?? "Unknown Author";
 
-                const serverDetailDesc = document.createElement("p");
-                serverDetailDesc.innerHTML = server.description;
+                const serverDesc = document.createElement("p");
+                serverDesc.textContent = server.description;
 
-                serverDetails.appendChild(serverDetailTitle);
-                serverDetails.appendChild(serverDetailAuthor);
-                serverDetails.appendChild(serverDetailDesc);
+                serverDetails.appendChild(serverTitle);
+                serverDetails.appendChild(serverAuthor);
+                serverDetails.appendChild(serverDesc);
 
-                serverOption.appendChild(serverOptionImg);
+                serverOption.appendChild(serverImg);
                 serverOption.appendChild(serverDetails);
-                servers.appendChild(serverOption);
-            });
 
-            // Save the launcher array once everything is restored
-            localStorage.setItem("serversLauncher", JSON.stringify(serversLauncher));
-        })
-        .catch((err) => console.error("Fetch error:", err));
+                serversBox.appendChild(serverOption);
+            });
+        });
 }
 
 generateServers();
-
-
 
 
 
@@ -435,8 +397,6 @@ function webedition(){
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
-    document.getElementById('header11').style.display = 'none';
-    document.getElementById('serverketplace-header').style.display = "none";
     document.getElementById('gtabs2').classList.add('selected');
 }
 function moddededition(){
@@ -453,8 +413,6 @@ function moddededition(){
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
-    document.getElementById('header11').style.display = 'none';
-    document.getElementById('serverketplace-header').style.display = "none";
     document.getElementById('gtabs3').classList.add('selected');
 }
 function eaglercontrols(){
@@ -472,8 +430,6 @@ function eaglercontrols(){
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
-    document.getElementById('header11').style.display = 'none';
-    document.getElementById('serverketplace-header').style.display = "none";
     document.getElementById('gtabs4').classList.add('selected');
 }
 
@@ -493,8 +449,6 @@ function settingsTab() {
     document.getElementById('header5').style.display = 'none';
     document.getElementById('header6').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
-    document.getElementById('header11').style.display = 'none';
-    document.getElementById('serverketplace-header').style.display = "none";
     document.querySelector(".informationBox").style.display = "none";
 
     // ✅ Select the Settings header
@@ -518,7 +472,6 @@ function creditsTab() {
 
     // ✅ Show the General section immediately
     document.getElementById('header1').style.display = 'none';
-    document.getElementById('serverketplace-header').style.display = "none";
     document.getElementById('header2').style.display = 'none';
     document.getElementById('header3').style.display = 'none';
     document.getElementById('header4').style.display = 'none';
@@ -527,7 +480,6 @@ function creditsTab() {
     document.getElementById('header7').style.display = 'none';
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
-    document.getElementById('header11').style.display = 'none';
     document.getElementById('credit').style.display = "flex";
     document.getElementById('header10').classList.add('selected');
     document.querySelector(".informationBox").style.display = "none";
@@ -557,41 +509,8 @@ function eaglerbuilder(){
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
-    document.getElementById('header11').style.display = 'none';
-    document.getElementById('serverketplace-header').style.display = "none";
     document.getElementById('gtabs7').classList.add('selected');
 }
-
-function serversTab() {
-    resetTabSelected();
-    resetHeaderSelected(); // just clear everything
-    generategames(launcher);
-    generatelaunchers(launcher);
-    resetHeaderSelected(); // ✅ hides everything
-
-    // ✅ Show the General section immediately
-    document.getElementById('header1').style.display = 'none';
-    document.getElementById('header2').style.display = 'none';
-    document.getElementById('header3').style.display = 'none';
-    document.getElementById('header4').style.display = 'none';
-    document.getElementById('header5').style.display = 'none';
-    document.getElementById('header6').style.display = 'none';
-    document.getElementById('header7').style.display = 'none';
-    document.getElementById('header8').style.display = 'none';
-    document.getElementById('header9').style.display = 'none';
-    document.getElementById('header10').style.display = 'none';
-    document.getElementById('serverketplace-header').style.display = "flex";
-    document.getElementById('server').style.display = "flex";
-    document.getElementById('header11').classList.add('selected');
-    document.querySelector(".informationBox").style.display = "none";
-    document.getElementById('gtabs8').classList.add('selected');
-
-    // (optional) update background/title for Settings if you want
-    document.getElementById('game-bg').style.backgroundImage = 'url(./assets/images/servers-bg.jpg)';
-    document.getElementById('game-title').src = './assets/images/severs-title.png';
-    document.getElementById('gameedition').innerHTML = 'SERVERS';
-}
-
 
 function playheader() {
     resetHeaderSelected();
@@ -676,16 +595,6 @@ function creditheader(){
     // ✅ hide info box when not on Play
     document.querySelector(".informationBox").style.display = "none";
 }
-
-function serverheader(){
-    resetHeaderSelected();
-    generatemods();
-    document.getElementById('server').style.display = "flex";
-    document.getElementById('header11').classList.add('selected');
-  
-    // ✅ hide info box when not on Play
-    document.querySelector(".informationBox").style.display = "none";
-}
 // Dropdown game options toggle
 function dropdowntoggle(){
     if (dropdown.style.visibility === 'hidden') {
@@ -701,7 +610,7 @@ function dropdowntoggle(){
 function resetTabSelected() {
     while (dropdown.firstChild) {dropdown.removeChild(dropdown.firstChild)};
     while (installations.firstChild) {installations.removeChild(installations.firstChild)};
-    for (var i = 1; i <= 11; i++) {   // loop through ALL headers
+    for (var i = 1; i <= 10; i++) {   // loop through ALL headers
         let gtabs = document.getElementById('gtabs' + [i]);
         let headers = document.getElementById('header' + [i]);
         if (gtabs) gtabs.classList.remove('selected');
@@ -718,7 +627,7 @@ function resetHeaderSelected() {
     while (notes.firstChild) { notes.removeChild(notes.firstChild) };
 
     // remove all selected classes
-    for (let i = 1; i < 12; i++) {  // 1–11 covers all headers
+    for (let i = 1; i < 11; i++) {  // 1–9 covers all headers
         let headers = document.getElementById('header' + i);
         if (headers) headers.classList.remove('selected');
     };
@@ -734,7 +643,6 @@ function resetHeaderSelected() {
     document.getElementById('accounts').style.display = "none";
     document.getElementById('about').style.display = "none";
     document.getElementById('credit').style.display = "none";
-    document.getElementById('server').style.display = "none";
 }
 
 
