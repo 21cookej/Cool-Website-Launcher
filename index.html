@@ -64,14 +64,22 @@
                 <p>Eaglerforge Builder </p>
             </div>
         </div>
-        <div onclick="creditsTab()" id="gtabs5" class="sidebarOptions sidebarBottom">
-            <img src="https://minecraft-eaglercraft-launcher.vercel.app/assets/images/sidebar/m-credits.png">
-            <div class="gTabsText"><p> Credits</p></div>
+        <div onclick="serverTab()" id="gtabs8" class="sidebarOptions">
+            <img src="https://minecraft-eaglercraft-launcher.vercel.app/assets/images/sidebar/i-servers.png">
+            <div class="gTabsText">
+                <p class="eaglercraftText"> EAGLERCRAFT</p>
+                <p>SERVERS </p>
+            </div>
         </div>
+      
         <!-- Sidebar -->
         <div onclick="settingsTab()" id="gtabs6" class="sidebarOptions sidebarBottom">
             <img src="https://minecraft-eaglercraft-launcher.vercel.app/assets/images/sidebar/m-settings.png">
             <div class="gTabsText"><p> Settings</p></div>
+        </div>
+        <div onclick="creditsTab()" id="gtabs5" class="sidebarOptions sidebarBottom">
+            <img src="https://minecraft-eaglercraft-launcher.vercel.app/assets/images/sidebar/m-credits.png">
+            <div class="gTabsText"><p> Credits</p></div>
         </div>
         <div class="launcherVersion"><p>v1.0.00-2.2.2</p></div>
     </div>
@@ -89,6 +97,7 @@
                     <li id="header8" style="display: none;" class="headerButtons" onclick="accountsheader()">Accounts</li>
                     <li id="header9" style="display: none;" class="headerButtons" onclick="aboutheader()">About</li>
                     <li id="header10" style="display: none;" class="headerButtons selected" onclick="creditheader()">Credits</li>
+                    <li id="header11" style="display: none;" class="headerButtons selected" onclick="serversheader()">Server</li>
                 </ul>
         </div>
         <div class="informationBox">
@@ -97,6 +106,12 @@
             <img class="modketplace-title" src="https://minecraft-eaglercraft-launcher.vercel.app/assets/images/modketplace-title.png" alt="modketplace">
             <p class="bolded modssubtitle">Community mods for EaglerForge(OLD) Installation.</p>
             <div id="modsbox"></div>
+        </div>
+        
+        <div id="servers">
+            <img class="serverketplace-title" src="https://minecraft-eaglercraft-launcher.vercel.app/assets/images/serverketplace-title.png" alt="serverketplace">
+            <p class="bolded serverssubtitle">Community mods for EaglerForge(OLD) Installation.</p>
+            <div id="serversbox"></div>
         </div>
         
         <div id="faq">
