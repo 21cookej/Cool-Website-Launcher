@@ -137,52 +137,71 @@
             <div style="padding: 2vh 3vw 100%;">
                 <p class="bolded patchnotes-title">Launcher Settings</p>
                 <div class="settingscontainer">
-                    <label><input class="settingBox" type="checkbox" onchange="sortnote('game')" unchecked>Keep Launcher Open While Games Running</label>
-                    <label><input class="settingBox" type="checkbox" onchange="sortnote('game')" checked>Animate Transitions Between Pages In The Launcher</label>
-                    <label><input class="settingBox" type="checkbox" onchange="sortnote('game')" checked>Animate The Play Button On The Play Pages In The Launcher</label>
+                    <label>
+                        <input class="settingBox" type="checkbox" data-setting="keepLauncherOpen">
+                        Keep Launcher Open While Games Running
+                    </label>
+                    <label>
+                        <input class="settingBox" type="checkbox" data-setting="animatePages">
+                        Animate Transitions Between Pages In The Launcher
+                    </label>
+                    <label>
+                        <input class="settingBox" type="checkbox" data-setting="animatePlayButton">
+                        Animate The Play Button On The Play Pages In The Launcher
+                    </label>
                 </div>
                 <p>Launcher Accessibility Settings</p>
                 <div class="settingscontainer">
-                    <label><input class="settingBox" type="checkbox" onchange="sortnote('game')" unchecked>Make Text Size Bigger</label>
-                    <label><input class="settingBox" type="checkbox" onchange="sortnote('game')" checked>Disable Video AutoPlay</label>
+                    <label>
+                        <input class="settingBox" type="checkbox" data-setting="bigText">
+                        Make Text Size Bigger
+                    </label>
+                    <label>
+                        <input class="settingBox" type="checkbox" data-setting="disableVideoAutoplay">
+                        Disable Video AutoPlay
+                    </label>
                 </div>
                 <p>Quick play</p>
                 <div class="settingscontainer">
-                    <label><input class="settingBox" type="checkbox" onchange="sortnote('game')" unchecked>Enable Quick Play Feature For Eaglercraft: Web Edition And Eaglercraft: Modded Edition</label>
-                    
+                    <label>
+                        <input class="settingBox" type="checkbox" data-setting="quickPlay">
+                        Enable Quick Play Feature For Eaglercraft: Web Edition And Eaglercraft: Modded Edition
+                    </label>
                 </div>
             </div>
         </div>
-        <div id="accounts" style="background: #1e1e1e;">
+      
+        <!-- Account Section -->
+        <div id="accounts" style="background: #1e1e1e; display: none;">
             <div style="padding: 2vh 3vw 100%;">
-                <p class="bolded patchnotes-title" style="font-size: 7vh;">Account Not Found</p>
-            </div>
-        </div>
-        <div id="about" style="background: #1e1e1e;">
-            <div style="padding: 2vh 3vw 100%;">
-                <p class="bolded patchnotes-title">Launcher For Web</p>
+                <p class="bolded patchnotes-title">Account</p>
                 <div class="settingscontainer">
-                      <f>Device: Chromebook System: Linux</f>
-                      <f>Date: 21/09/2025</f>
-                      <f>ID: 759388hfj28173j2os2326352519</f>
-                      <hr>
-                </div>
-                <p class="bolded patchnotes-title">Bootstrap</p>
-                <div class="settingscontainer">
-                      <f>Version: 2.2.2</f>
-                      <f>Date: 21/09/2025</f>
-                      <f>ID: 759388hfj28173j2os2326352519</f>
-                      <hr>
-                </div>
-                <p class="bolded patchnotes-title">UI</p>
-                <div class="settingscontainer">
-                      <f>Version: 3.19.27</f>
-                      <f>Date:21/09/2025</f>
-                      <f>ID: 759388hfj28173j2os2326352519</f>
-                      <hr>
+                    <label>
+                        Set Username:
+                        <input type="text" id="accountUsernameInput" placeholder="Enter your name">
+                        <button id="saveUsernameBtn">Save</button>
+                        <p class="bolded patchnotes-title">Your Account:</p>
+                    <div class="username centeredIcon bolded">
+                        <p id="username">Generic User</p>
+                    </div>
+                    </label>
                 </div>
             </div>
         </div>
+        <div class="usernameDisplay">
+            <p>Account: <span class="username-text">Generic User</span></p>
+        </div>
+
+        <!-- About Section -->
+        <div id="about" style="background: #1e1e1e; display: none; color: white;">
+            <div id="aboutContent" style="padding: 2vh 3vw 100%;">
+                <!-- Content will be injected by JS -->
+            </div>
+        </div>
+
+
+
+
         <div id="credit" style="background: #1e1e1e;">
             <div style="padding: 2vh 3vw 100%;">
                 <p class="bolded patchnotes-title">Clients</p>
@@ -206,6 +225,55 @@
                 
             </div>
         </div>
+       
+        <script>
+            // Load saved settings
+            document.querySelectorAll('.settingBox').forEach(box => {
+                const key = box.dataset.setting;
+                if(localStorage.getItem(key) === "true") {
+                    box.checked = true;
+                } else if(localStorage.getItem(key) === "false") {
+                    box.checked = false;
+                }
+
+                // Save on change
+                box.addEventListener('change', () => {
+                    localStorage.setItem(key, box.checked);
+                    applySetting(key, box.checked);
+                });
+            });
+
+            // Example function to apply setting changes dynamically
+            function applySetting(key, value) {
+                switch(key) {
+                    case "keepLauncherOpen":
+                        console.log("Keep Launcher Open:", value);
+                        break;
+                    case "animatePages":
+                        console.log("Animate Pages:", value);
+                        break;
+                    case "animatePlayButton":
+                        console.log("Animate Play Button:", value);
+                        break;
+                    case "bigText":
+                        document.body.style.fontSize = value ? "1.2em" : "1em";
+                        break;
+                    case "disableVideoAutoplay":
+                        console.log("Video Autoplay Disabled:", value);
+                        break;
+                    case "quickPlay":
+                        console.log("Quick Play Enabled:", value);
+                        break;
+                }
+            }
+
+            // Apply all saved settings on load
+            document.addEventListener("DOMContentLoaded", () => {
+                document.querySelectorAll('.settingBox').forEach(box => {
+                    applySetting(box.dataset.setting, box.checked);
+                });
+            });
+        </script>
         <div id="gameSelection">
                 <div class="dropdownSelector" onclick="dropdowntoggle()">
                     <div style="display: flex; gap: 1vw;">
@@ -228,8 +296,9 @@
                 </div>
             <div id="dropdn" class="dropdownMenu" style="visibility: hidden;"></div>
             <a id="playbutton" href="mc/1.12.2"><div id="mainbutton" class="playButton"></div></a>
-            <div class="username centeredIcon bolded"><p id="username">Generic User</p></div>
+          
         </div>
+
     </div>
     <script src="./js/index.js"></script>
 </body>
