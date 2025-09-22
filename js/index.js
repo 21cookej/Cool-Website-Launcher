@@ -161,6 +161,87 @@ function generatemods() {
     })
 };
 
+const servers = document.getElementById("serversbox");
+
+function generateservers() {
+    // Clear previous server options first
+    servers.innerHTML = "";
+
+    fetch("https://minecraft-eaglercraft-launcher.vercel.app/assets/json/servers.json")
+        .then((response) => response.json())
+        .then((data) => {
+            data.forEach((server) => {
+                const serveroption = document.createElement("div");
+                serveroption.className = "serveroption";
+
+                // Copy server link when clicked
+                serveroption.addEventListener("click", () => {
+                    navigator.clipboard.writeText(server.link)
+                        .then(() => {
+                            console.log(`Copied: ${server.link} to Clipboard`);
+                            showCopiedPopup();
+                        })
+                        .catch((err) => console.error("Failed to copy: ", err));
+                });
+
+                const serveroptionimg = document.createElement("img");
+                serveroptionimg.src = server.icon; // use the icon from JSON
+
+                const serverdetails = document.createElement("div");
+                serverdetails.className = "serverdetails";
+
+                const serverdetailtitle = document.createElement("p");
+                serverdetailtitle.className = "bolded servertitle";
+                serverdetailtitle.innerHTML = server.title;
+
+                const serverdetailauthor = document.createElement("p");
+                serverdetailauthor.className = "serverauthor";
+                serverdetailauthor.innerHTML = server.author || "";
+
+                const serverdetaildesc = document.createElement("p");
+                serverdetaildesc.innerHTML = server.description;
+
+                serverdetails.appendChild(serverdetailtitle);
+                serverdetails.appendChild(serverdetailauthor);
+                serverdetails.appendChild(serverdetaildesc);
+
+                serveroption.appendChild(serveroptionimg);
+                serveroption.appendChild(serverdetails);
+                servers.appendChild(serveroption);
+            });
+        })
+        .catch(err => console.error("Failed to load servers:", err));
+}
+
+// Function to show a green "Copied" popup
+function showCopiedPopup() {
+    const popup = document.createElement("div");
+    popup.innerText = "Copied To Clipboard";
+    popup.style.position = "fixed";
+    popup.style.top = "20px";
+    popup.style.right = "20px";
+    popup.style.backgroundColor = "#54ac00";
+    popup.style.color = "white";
+    popup.style.padding = "10px 20px";
+    popup.style.borderRadius = "5px";
+    popup.style.fontWeight = "bold";
+    popup.style.boxShadow = "0 2px 6px rgba(0,0,0,0.9)";
+    popup.style.zIndex = "9999";
+    popup.style.opacity = "1";
+    popup.style.transition = "opacity 0.5s ease-out";
+
+    document.body.appendChild(popup);
+
+    // Fade out after 1 second
+    setTimeout(() => {
+        popup.style.opacity = "0";
+        setTimeout(() => document.body.removeChild(popup), 500);
+    }, 1000);
+}
+
+
+
+
 const installations = document.getElementById("installationsbox");
 function generatelaunchers(path) {
     fetch(path).then((response) => response.json()).then((data) => {
@@ -362,6 +443,32 @@ function moddededition(){
     document.getElementById('header10').style.display = 'none';
     document.getElementById('gtabs3').classList.add('selected');
 }
+
+function serverTab(){
+    launcher = "https://minecraft-eaglercraft-launcher.vercel.app/assets/json/server.json";
+    resetTabSelected();
+    generateprofile(2);
+    generateservers();
+    document.getElementById('game-bg').style.backgroundImage = 'url(https://minecraft-eaglercraft-launcher.vercel.app/assets/images/server.jpg)';
+    document.getElementById('game-title').src = 'https://minecraft-eaglercraft-launcher.vercel.app/assets/images/server-title.png';
+    document.getElementById('gameedition').innerHTML = 'EAGLERCRAFT SERVERS';
+    document.getElementById('header1').style.display = 'none';
+    document.getElementById('game-title').style.display = 'none';
+    document.getElementById('header2').style.display = 'none';
+    document.getElementById('header3').style.display = 'none';
+    document.getElementById('header4').style.display = 'none';
+    document.getElementById('header5').style.display = 'none';
+    document.getElementById('header6').style.display = 'none';
+    document.getElementById('header7').style.display = 'none';
+    document.getElementById('header8').style.display = 'none';
+    document.getElementById('header9').style.display = 'none';
+    document.getElementById('header10').style.display = 'none';
+    document.querySelector(".informationBox").style.display = "none";
+    document.getElementById('header11').classList.add('selected');
+    document.getElementById('gameSelection').style.display = 'none';
+    document.getElementById('servers').style.display = "flex";
+    document.getElementById('gtabs8').classList.add('selected');
+}
 function eaglercontrols(){
     launcher = "https://minecraft-eaglercraft-launcher.vercel.app/assets/json/assisted.json";
     resetTabSelected();
@@ -438,7 +545,6 @@ function creditsTab() {
     document.getElementById('gameedition').innerHTML = 'CREDITS';
 }
 
-
 function eaglerbuilder(){
     launcher = "https://minecraft-eaglercraft-launcher.vercel.app/assets/json/builder.json";
     resetTabSelected();
@@ -464,14 +570,11 @@ function playheader() {
     generategames(launcher);
 
     document.getElementById('game-bg').style.display = "flex";
-    document.getElementById('gameSelection').style.display = "flex";
     document.getElementById('header1').classList.add('selected'); // ✅ select header1 manually
 
     // ✅ show info box only on Play page
     document.querySelector(".informationBox").style.display = "flex";
 }
-
-
 
 function modsheader(){
     resetHeaderSelected();
@@ -482,6 +585,17 @@ function modsheader(){
     // ✅ hide info box when not on Play
     document.querySelector(".informationBox").style.display = "none";
 }
+
+function serversheader(){
+    resetHeaderSelected();
+    generateservers();
+    document.getElementById('servers').style.display = "flex";
+    document.getElementById('header11').classList.add('selected');
+  
+    // ✅ hide info box when not on Play
+    document.querySelector(".informationBox").style.display = "none";
+}
+
 function faqsheader() {
     resetHeaderSelected();
 
@@ -500,6 +614,7 @@ function installationheader(){
     // ✅ hide info box when not on Play
     document.querySelector(".informationBox").style.display = "none";
 }
+
 function patchnotesheader(){
     resetHeaderSelected();
     generatenotes();
@@ -509,6 +624,7 @@ function patchnotesheader(){
     // ✅ hide info box when not on Play
     document.querySelector(".informationBox").style.display = "none";
 }
+
 function generalheader(){
     resetHeaderSelected();
     document.getElementById('general').style.display = "flex";
@@ -517,6 +633,7 @@ function generalheader(){
     // ✅ hide info box when not on Play
     document.querySelector(".informationBox").style.display = "none";
 }
+
 function accountsheader(){
     resetHeaderSelected();
     document.getElementById('accounts').style.display = "flex";
@@ -525,6 +642,7 @@ function accountsheader(){
     // ✅ hide info box when not on Play
     document.querySelector(".informationBox").style.display = "none";
 }
+
 function aboutheader(){
     resetHeaderSelected();
     document.getElementById('about').style.display = "flex";
@@ -533,6 +651,7 @@ function aboutheader(){
     // ✅ hide info box when not on Play
     document.querySelector(".informationBox").style.display = "none";
 }
+
 function creditheader(){
     resetHeaderSelected();
     document.getElementById('credit').style.display = "flex";
@@ -557,7 +676,7 @@ function dropdowntoggle(){
 function resetTabSelected() {
     while (dropdown.firstChild) {dropdown.removeChild(dropdown.firstChild)};
     while (installations.firstChild) {installations.removeChild(installations.firstChild)};
-    for (var i = 1; i <= 10; i++) {   // loop through ALL headers
+    for (var i = 1; i <= 11; i++) {   // loop through ALL headers
         let gtabs = document.getElementById('gtabs' + [i]);
         let headers = document.getElementById('header' + [i]);
         if (gtabs) gtabs.classList.remove('selected');
@@ -574,13 +693,14 @@ function resetHeaderSelected() {
     while (notes.firstChild) { notes.removeChild(notes.firstChild) };
 
     // remove all selected classes
-    for (let i = 1; i < 11; i++) {  // 1–9 covers all headers
+    for (let i = 1; i < 12; i++) {  // 1–11 covers all headers
         let headers = document.getElementById('header' + i);
         if (headers) headers.classList.remove('selected');
     };
 
     // hide all sections
     document.getElementById('game-bg').style.display = "none";
+    document.getElementById('game-title').style.display = 'flex';
     document.getElementById('gameSelection').style.display = "none";
     document.getElementById('mods').style.display = "none";
     document.getElementById('faq').style.display = "none";
@@ -590,6 +710,7 @@ function resetHeaderSelected() {
     document.getElementById('accounts').style.display = "none";
     document.getElementById('about').style.display = "none";
     document.getElementById('credit').style.display = "none";
+    document.getElementById('servers').style.display = "none";
 }
 
 
