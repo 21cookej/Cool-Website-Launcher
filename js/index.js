@@ -425,6 +425,7 @@ function webedition(){
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
+    document.getElementById('header11').style.display = 'none';
     document.getElementById('gtabs2').classList.add('selected');
 }
 function moddededition(){
@@ -441,6 +442,7 @@ function moddededition(){
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
+    document.getElementById('header11').style.display = 'none';
     document.getElementById('gtabs3').classList.add('selected');
 }
 
@@ -484,6 +486,7 @@ function eaglercontrols(){
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
+    document.getElementById('header11').style.display = 'none';
     document.getElementById('gtabs4').classList.add('selected');
 }
 
@@ -503,6 +506,8 @@ function settingsTab() {
     document.getElementById('header5').style.display = 'none';
     document.getElementById('header6').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
+    document.getElementById('header11').style.display = 'none';
+    document.getElementById('gameSelection').style.display = 'none';
     document.querySelector(".informationBox").style.display = "none";
 
     // ✅ Select the Settings header
@@ -534,6 +539,8 @@ function creditsTab() {
     document.getElementById('header7').style.display = 'none';
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
+    document.getElementById('header11').style.display = 'none';
+    document.getElementById('gameSelection').style.display = 'none';
     document.getElementById('credit').style.display = "flex";
     document.getElementById('header10').classList.add('selected');
     document.querySelector(".informationBox").style.display = "none";
@@ -562,6 +569,7 @@ function eaglerbuilder(){
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
+    document.getElementById('header11').style.display = 'none';
     document.getElementById('gtabs7').classList.add('selected');
 }
 
@@ -581,6 +589,7 @@ function modsheader(){
     generatemods();
     document.getElementById('mods').style.display = "flex";
     document.getElementById('header2').classList.add('selected');
+    document.getElementById('gameSelection').style.display = 'none';
   
     // ✅ hide info box when not on Play
     document.querySelector(".informationBox").style.display = "none";
@@ -591,6 +600,7 @@ function serversheader(){
     generateservers();
     document.getElementById('servers').style.display = "flex";
     document.getElementById('header11').classList.add('selected');
+    document.getElementById('gameSelection').style.display = 'none';
   
     // ✅ hide info box when not on Play
     document.querySelector(".informationBox").style.display = "none";
@@ -601,6 +611,7 @@ function faqsheader() {
 
     document.getElementById('faq').style.display = "block";
     document.getElementById('header3').classList.add('selected');
+    document.getElementById('gameSelection').style.display = 'none';
 
     // ✅ hide info box when not on Play
     document.querySelector(".informationBox").style.display = "none";
@@ -610,6 +621,7 @@ function installationheader(){
     resetHeaderSelected();
     document.getElementById('installations').style.display = "flex";
     document.getElementById('header4').classList.add('selected');
+    document.getElementById('gameSelection').style.display = 'none';
   
     // ✅ hide info box when not on Play
     document.querySelector(".informationBox").style.display = "none";
@@ -620,6 +632,7 @@ function patchnotesheader(){
     generatenotes();
     document.getElementById('patchNotes').style.display = "flex";
     document.getElementById('header6').classList.add('selected');
+    document.getElementById('gameSelection').style.display = 'none';
   
     // ✅ hide info box when not on Play
     document.querySelector(".informationBox").style.display = "none";
@@ -629,6 +642,7 @@ function generalheader(){
     resetHeaderSelected();
     document.getElementById('general').style.display = "flex";
     document.getElementById('header7').classList.add('selected');
+    document.getElementById('gameSelection').style.display = 'none';
   
     // ✅ hide info box when not on Play
     document.querySelector(".informationBox").style.display = "none";
@@ -638,6 +652,7 @@ function accountsheader(){
     resetHeaderSelected();
     document.getElementById('accounts').style.display = "flex";
     document.getElementById('header8').classList.add('selected');
+    document.getElementById('gameSelection').style.display = 'none';
   
     // ✅ hide info box when not on Play
     document.querySelector(".informationBox").style.display = "none";
@@ -647,6 +662,7 @@ function aboutheader(){
     resetHeaderSelected();
     document.getElementById('about').style.display = "flex";
     document.getElementById('header9').classList.add('selected');
+    document.getElementById('gameSelection').style.display = 'none';
   
     // ✅ hide info box when not on Play
     document.querySelector(".informationBox").style.display = "none";
@@ -656,6 +672,7 @@ function creditheader(){
     resetHeaderSelected();
     document.getElementById('credit').style.display = "flex";
     document.getElementById('header10').classList.add('selected');
+    document.getElementById('gameSelection').style.display = 'none';
     
   
     // ✅ hide info box when not on Play
@@ -701,7 +718,7 @@ function resetHeaderSelected() {
     // hide all sections
     document.getElementById('game-bg').style.display = "none";
     document.getElementById('game-title').style.display = 'flex';
-    document.getElementById('gameSelection').style.display = "none";
+    document.getElementById('gameSelection').style.display = "flex";
     document.getElementById('mods').style.display = "none";
     document.getElementById('faq').style.display = "none";
     document.getElementById('installations').style.display = "none";
@@ -725,6 +742,127 @@ function preventMotion(event)
     event.preventDefault();
     event.stopPropagation();
 }
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const inputEl = document.getElementById('accountUsernameInput');
+    const saveBtn = document.getElementById('saveUsernameBtn');
+    const usernameEls = document.querySelectorAll('.username-text');
+
+    function updateUsernameDisplay(name) {
+        usernameEls.forEach(el => {
+            el.innerText = name || "Generic User";
+        });
+    }
+
+    // Load saved username
+    const savedName = localStorage.getItem('username');
+    if (savedName) updateUsernameDisplay(savedName);
+
+    // Live preview while typing
+    if (inputEl) {
+        inputEl.addEventListener('input', () => {
+            updateUsernameDisplay(inputEl.value);
+        });
+    }
+
+    // Save button
+    if (saveBtn && inputEl) {
+        saveBtn.addEventListener('click', () => {
+            const name = inputEl.value.trim();
+            if (name) {
+                localStorage.setItem('username', name);
+                updateUsernameDisplay(name);
+                inputEl.value = "";
+                showSavedPopup("Username saved!");
+            }
+        });
+    }
+
+    // Popup function (separate from copy)
+    function showSavedPopup(message) {
+        const popup = document.createElement("div");
+        popup.innerText = message;
+        popup.style.position = "fixed";
+        popup.style.top = "20px";
+        popup.style.right = "20px";
+        popup.style.backgroundColor = "#007bff";
+        popup.style.color = "white";
+        popup.style.padding = "10px 20px";
+        popup.style.borderRadius = "5px";
+        popup.style.fontWeight = "bold";
+        popup.style.boxShadow = "0 2px 6px rgba(0,0,0,0.9)";
+        popup.style.zIndex = "9999";
+        popup.style.opacity = "1";
+        popup.style.transition = "opacity 0.5s ease-out";
+
+        document.body.appendChild(popup);
+
+        setTimeout(() => {
+            popup.style.opacity = "0";
+            setTimeout(() => document.body.removeChild(popup), 500);
+        }, 1000);
+    }
+});
+
+
+
+function generateRandomID(length = 20) {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let id = "";
+    for (let i = 0; i < length; i++) {
+        id += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return id;
+}
+
+function detectDevice() {
+    const userAgent = navigator.userAgent;
+    const platform = navigator.platform;
+
+    // Check if Chromebook
+    if (userAgent.includes("CrOS")) {
+        return "Chromebook (Chrome OS)";
+    }
+
+    // Otherwise fallback
+    return platform || "Unknown Device";
+}
+
+function loadAboutSection() {
+    const aboutContent = document.getElementById("aboutContent");
+
+    // Device info
+    const device = detectDevice();
+
+    // Date
+    const date = new Date().toLocaleDateString();
+
+    // Random ID (saved in localStorage so it stays the same across reloads)
+    let randomID = localStorage.getItem("aboutRandomID");
+    if (!randomID) {
+        randomID = generateRandomID();
+        localStorage.setItem("aboutRandomID", randomID);
+    }
+
+    // Fill in content
+    aboutContent.innerHTML = `
+        <p class="bolded patchnotes-title">Device Info</p>
+        <div class="settingscontainer">
+            <p>Device: ${device}</p>
+            <p>User Agent: ${navigator.userAgent}</p>
+            <p>Date: ${date}</p>
+            <p>ID: ${randomID}</p>
+        </div>
+    `;
+}
+
+// Run when page loads
+loadAboutSection();
+
+
+
 
 // Username Generator
 let username = document.getElementById('username');
