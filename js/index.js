@@ -397,6 +397,7 @@ function webedition(){
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
+    document.getElementById('header11').style.display = 'none';
     document.getElementById('gtabs2').classList.add('selected');
 }
 function moddededition(){
@@ -413,6 +414,7 @@ function moddededition(){
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
+    document.getElementById('header11').style.display = 'none';
     document.getElementById('gtabs3').classList.add('selected');
 }
 function eaglercontrols(){
@@ -430,6 +432,7 @@ function eaglercontrols(){
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
+    document.getElementById('header11').style.display = 'none';
     document.getElementById('gtabs4').classList.add('selected');
 }
 
@@ -449,6 +452,7 @@ function settingsTab() {
     document.getElementById('header5').style.display = 'none';
     document.getElementById('header6').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
+    document.getElementById('header11').style.display = 'none';
     document.querySelector(".informationBox").style.display = "none";
 
     // ✅ Select the Settings header
@@ -480,6 +484,7 @@ function creditsTab() {
     document.getElementById('header7').style.display = 'none';
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
+    document.getElementById('header11').style.display = 'none';
     document.getElementById('credit').style.display = "flex";
     document.getElementById('header10').classList.add('selected');
     document.querySelector(".informationBox").style.display = "none";
@@ -509,8 +514,39 @@ function eaglerbuilder(){
     document.getElementById('header8').style.display = 'none';
     document.getElementById('header9').style.display = 'none';
     document.getElementById('header10').style.display = 'none';
+    document.getElementById('header11').style.display = 'none';
     document.getElementById('gtabs7').classList.add('selected');
 }
+
+function serversTab() {
+    resetTabSelected();
+    resetHeaderSelected(); // just clear everything
+    generategames(launcher);
+    generatelaunchers(launcher);
+    resetHeaderSelected(); // ✅ hides everything
+
+    // ✅ Show the General section immediately
+    document.getElementById('header1').style.display = 'none';
+    document.getElementById('header2').style.display = 'none';
+    document.getElementById('header3').style.display = 'none';
+    document.getElementById('header4').style.display = 'none';
+    document.getElementById('header5').style.display = 'none';
+    document.getElementById('header6').style.display = 'none';
+    document.getElementById('header7').style.display = 'none';
+    document.getElementById('header8').style.display = 'none';
+    document.getElementById('header9').style.display = 'none';
+    document.getElementById('header10').style.display = 'none';
+    document.getElementById('server').style.display = "flex";
+    document.getElementById('header11').classList.add('selected');
+    document.querySelector(".informationBox").style.display = "none";
+    document.getElementById('gtabs8').classList.add('selected');
+
+    // (optional) update background/title for Settings if you want
+    document.getElementById('game-bg').style.backgroundImage = 'url(./assets/images/servers-bg.jpg)';
+    document.getElementById('game-title').src = './assets/images/severs-title.png';
+    document.getElementById('gameedition').innerHTML = 'SERVERS';
+}
+
 
 function playheader() {
     resetHeaderSelected();
@@ -643,6 +679,7 @@ function resetHeaderSelected() {
     document.getElementById('accounts').style.display = "none";
     document.getElementById('about').style.display = "none";
     document.getElementById('credit').style.display = "none";
+    document.getElementById('server').style.display = "none";
 }
 
 
