@@ -150,7 +150,7 @@ hr {
 }
 
 #gtabs1 img {width: 3vw;}
-#gtabs2 img, #gtabs3 img, #gtabs4 img, #gtabs7 img, #gtabs8 img {width: 2.5vw;}
+#gtabs2 img, #gtabs3 img, #gtabs4 img, #gtabs7 img {width: 2.5vw;}
 #gtabs5 {
   bottom: 7.5vw;
   w;
@@ -432,91 +432,6 @@ hr {
 }
 
 .modauthor {
-    text-decoration: underline;
-}
-
-
-/* Servers Menu CSS */
-
-#servers {
-    position: absolute;
-    display: none;
-    width: 84vw;
-    height: 91vh;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: scroll;
-}
-
-.serverketplace-header {
-    display: none;
-    flex-direction: column;
-    align-items: center;   /* ✅ centers children horizontally */
-    padding: 2vh 0;
-    width: 100%;           /* span full container width */
-}
-
-.serverketplace-title {
-    width: 58vw;           /* scale image */
-    margin: 0 0 1vh 0;     /* space below image */
-    display: flex;
-}
-
-.serverssubtitle {
-    font-size: 1.6vw;
-    margin: 0;             /* remove weird margins */
-    text-align: center;    /* ✅ center the text itself */
-}
-
-
-#serversbox {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5vw 1.5vw;
-    padding: 4vh 0 7vh;
-    z-index: 4;
-    
-}
-
-.serveroption {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    width: 10vw;
-    border: 0.5vw solid var(--ui-main);
-    transition: 0.1s;
-}
-
-.serveroption:hover {
-    scale: 1.05;
-}
-
-.serveroption img {
-    border: 0.3vw solid #AA0000;
-    image-rendering: pixelated;
-}
-
-.serveroption.selected img {
-    border: 0.3vw solid #00AA00;
-}
-
-.serveroption:hover img {
-    background-color: rgba(255, 255, 255, 0.05);
-}
-
-.serverdetails {
-    background-color: var(--ui-main-lighter);
-    padding: 0.5vw;
-    height: -webkit-fill-available;
-    font-size: 1.3vw;
-}
-
-.servertitle {
-    font-size: 1.5vw;
-}
-
-.serverauthor {
     text-decoration: underline;
 }
 
@@ -887,3 +802,72 @@ hr {
 
 
 
+
+#servers {
+    position: absolute;
+    display: none;
+    width: 84vw;
+    height: 91vh;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.serverketplace-title {
+    margin: 4vh 0 1vh;
+    width: 58vw;
+}
+
+.serverssubtitle {
+    font-size: 1.6vw;
+}
+
+#serversbox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5vw 1.5vw;
+    padding: 4vh 0 7vh;
+    z-index: 4;
+}
+
+.serveroption {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    width: 10vw;
+    border: 0.5vw solid var(--ui-main);
+    transition: 0.1s;
+}
+
+.serveroption:hover {
+    scale: 1.05;
+}
+
+.serveroption img {
+    border: 0.3vw solid #AA0000;
+    image-rendering: pixelated;
+}
+
+.serveroption.selected img {
+    border: 0.3vw solid #00AA00;
+}
+
+.serveroption:hover img {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.serverdetails {
+    background-color: var(--ui-main-lighter);
+    padding: 0.5vw;
+    height: -webkit-fill-available;
+    font-size: 1.3vw;
+}
+
+.servertitle {
+    font-size: 1.5vw;
+}
+
+.serverauthor {
+    text-decoration: underline;
+}
