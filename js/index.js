@@ -12,7 +12,6 @@ function errorNA(text) {
       document.getElementById('errortext').innerHTML = "This feature hasn't been made yet."
   }, 3200);
 }
-
 // Last Played Game Option
 let selectedGame1 = localStorage.getItem("basegame");
 let selectedGame2 = localStorage.getItem("moddedgame");
