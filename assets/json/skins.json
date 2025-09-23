@@ -1,0 +1,9 @@
+[
+  {
+    "title": "Cool Skin",
+    "author": "Player123",
+    "description": "Epic skin for testing",
+    "icon": "https://minecraft-eaglercraft-launcher.vercel.app/assets/images/mod-icons/cursor.png",
+    "file": "https://example.com/skin-file.png"
+  }
+]
