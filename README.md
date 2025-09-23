@@ -8,11 +8,7 @@
 <hr>
 
  ## Versions
- __v1.4.00__ - Added patch notes, bug fixes, and integrated mods!<br>
- __v1.3.10__ - Organized and updated code, added memory options, more games, installations, usernames, and faq screen!<br>
- __v1.2.00__ - Updated games.<br>
- __v1.1.00__ - Updated code and optimized!<br>
- __v1.0.00__ - Main code with future updates planned!
+ __v1.0.00__ - Main code with lots of small updates!
 
  <hr>
 
@@ -27,9 +23,9 @@
 <details>
 <summary>Click here to expand feature list</summary>
 
-- [ ] Add the servers screen
-- [ ] Add Credits screen
-- [ ] Add Settings screen
+- [X] Add the servers screen
+- [X] Add Credits screen
+- [X] Add Settings screen
 - [x] Rewrite some of the css and js
 - [x] Organize code, and add comments
 - [ ] Add a customizable launcher selector
@@ -39,10 +35,9 @@
 - [x] Add Mods screen
 - [ ] Add Skins screen
 - [x] Add Patch Notes screen
-- [ ] Fix display errors
+- [X] Fix display errors
 - [ ] Offline launcher download?
 </details>
 
 <hr>
 
->__Finally [here](https://21cookej.github.io/Eaglercraft-Launcher/) is the live version of the code!__
